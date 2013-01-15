@@ -1,0 +1,22 @@
+
+
+ // 1  3.3V
+  // 2  GND
+  // 3  SCCB_C     GPIOD_2
+  // 4  SCCB_D     GPIOD_3
+  // 5  VSYNC      GPIOC_3
+  // 6  WRST       GPIOF_8     H
+  // 7  WEN        GPIOF_11    L
+  // 8  NC
+  // 9  RRST       GPIOF_9     H
+  // 10 OE         GPIOF_7     L
+  // 11 RCLK       GPIOF_10    L/H
+  // 12 GND
+  // 13 D0         PB8
+  // 14 D1         PB9
+  // 15 D2         PB10
+  // 16 D3         PB11
+  // 17 D4         PB12
+  // 18 D5         PB13
+  // 19 D6         PB14
+  // 20 D7         PB15

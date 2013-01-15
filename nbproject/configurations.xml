@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="80">
+<configurationDescriptor version="84">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <df name="camera" root=".">
       <df name="Camera">
         <in>Camera.cpp</in>
         <in>Camera.h</in>
+      </df>
+      <df name="CameraAL422B">
+        <df name="datasheet">
+          <df name="OV7725 Camera Module with FIFO">
+            <df name="ArduinoCam">
+              <df name="Arduino">
+                <df name="libraries">
+                  <df name="DigitalWriteFast">
+                    <in>DigitalWriteFast.h</in>
+                  </df>
+                  <df name="MIN_at_Camera">
+                    <in>MIN_at_Camera.cpp</in>
+                    <in>MIN_at_Camera.h</in>
+                  </df>
+                  <df name="MIN_at_DS1307">
+                    <in>MIN_at_DS1307.cpp</in>
+                    <in>MIN_at_DS1307.h</in>
+                  </df>
+                  <df name="MIN_at_TC74">
+                    <in>MIN_at_TC74.cpp</in>
+                    <in>MIN_at_TC74.h</in>
+                  </df>
+                  <df name="MIN_at_Tools">
+                    <in>MIN_at_Tools.cpp</in>
+                    <in>MIN_at_Tools.h</in>
+                  </df>
+                </df>
+                <df name="sketchbook">
+                  <df name="ArduinoCam">
+                    <in>Base64.ino</in>
+                    <in>Bitmap.ino</in>
+                    <in>Camera.ino</in>
+                    <in>DS1307.ino</in>
+                    <in>TC74.ino</in>
+                  </df>
+                </df>
+              </df>
+              <df name="PC">
+                <df name="bin">
+                  <df name="Debug">
+                  </df>
+                </df>
+                <df name="obj">
+                  <df name="Debug">
+                  </df>
+                </df>
+                <df name="Properties">
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <in>CameraAL422B.cpp</in>
+        <in>CameraAL422B.h</in>
       </df>
       <df name="CameraOV7670">
         <df name="datasheet">
@@ -31,6 +85,8 @@
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
       </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
       <makefileType>
         <makeTool>
           <buildCommandWorkingDir>.</buildCommandWorkingDir>

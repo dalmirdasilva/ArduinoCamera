@@ -16,7 +16,6 @@ CameraOV7670::CameraOV7670(unsigned char (*read)(), unsigned char vsyncPin, unsi
     this->vsyncPin = vsyncPin;
     this->hsyncPin = hsyncPin;
     address = 0x42;
-    
     Wire.begin();
 }
 

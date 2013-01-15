@@ -1,0 +1,8 @@
+C:\Users\Richard\Desktop\ArduCam\PC\bin\Debug\ArduinoCam.exe
+C:\Users\Richard\Desktop\ArduCam\PC\bin\Debug\ArduinoCam.pdb
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\SSTV.Form1.resources
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\ResGen.read.1.tlog
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\ResGen.write.1.tlog
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\ArduinoCam.exe
+C:\Users\Richard\Desktop\ArduCam\PC\obj\Debug\ArduinoCam.pdb

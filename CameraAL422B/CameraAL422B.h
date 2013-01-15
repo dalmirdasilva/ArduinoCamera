@@ -1,185 +1,185 @@
 /**
- * Arduino - CameraOV7670 implementation.
+ * Arduino - CameraAL422B implementation.
  * 
- * CameraOV7670.h
+ * CameraAL422B.h
  * 
- * The class CameraOV7670.
+ * The class CameraAL422B.
  * 
  * @author Dalmir da Silva <dalmirdasilva@gmail.com>
  */
 
-#ifndef __ARDUINO_DRIVER_CAMERA_OV7670_H__
-#define __ARDUINO_DRIVER_CAMERA_OV7670_H__ 1
+#ifndef __ARDUINO_DRIVER_CAMERA_AL422B_H__
+#define __ARDUINO_DRIVER_CAMERA_AL422B_H__ 1
 
 // CCIR656 enable
-#define OV7670_COM1_CCIR656            0x40
+#define AL422B_COM1_CCIR656            0x40
 
 // Soft sleep mode
-#define OV7670_COM2_SSLEEP             0x10
+#define AL422B_COM2_SSLEEP             0x10
 
 // Byte swap
-#define OV7670_COM3_SWAP               0x40
+#define AL422B_COM3_SWAP               0x40
 
 // Enable scaling
-#define OV7670_COM3_SCALEEN            0x08
+#define AL422B_COM3_SCALEEN            0x08
 
 // Enable downsamp/crop/window
-#define OV7670_COM3_DCWEN              0x04
+#define AL422B_COM3_DCWEN              0x04
 
 // Use external clock directly
-#define OV7670_CLKRC_EXT               0x40
+#define AL422B_CLKRC_EXT               0x40
 
 // Mask for internal clock scale
-#define OV7670_CLKRC_SCALE             0x3f
+#define AL422B_CLKRC_SCALE             0x3f
 
 // Reset
-#define OV7670_COM7_RESET              0x80
+#define AL422B_COM7_RESET              0x80
 
 // 
-#define OV7670_COM7_FMT_MASK           0x38
+#define AL422B_COM7_FMT_MASK           0x38
 
 // 
-#define OV7670_COM7_FMT_VGA            0x00
+#define AL422B_COM7_FMT_VGA            0x00
 
 // CIF format
-#define OV7670_COM7_FMT_CIF            0x20
+#define AL422B_COM7_FMT_CIF            0x20
 
 // QVGA format
-#define OV7670_COM7_FMT_QVGA           0x10
+#define AL422B_COM7_FMT_QVGA           0x10
 
 // QCIF format
-#define OV7670_COM7_FMT_QCIF           0x08
+#define AL422B_COM7_FMT_QCIF           0x08
 
 // bits 0 and 2 - RGB format
-#define OV7670_COM7_RGB                0x04
+#define AL422B_COM7_RGB                0x04
 
 // YUV
-#define OV7670_COM7_YUV                0x00
+#define AL422B_COM7_YUV                0x00
 
 // Bayer format
-#define OV7670_COM7_BAYER              0x01
+#define AL422B_COM7_BAYER              0x01
 
 // Processed bayer
-#define OV7670_COM7_PBAYER             0x05
+#define AL422B_COM7_PBAYER             0x05
 
 // Enable fast AGC/AEC
-#define OV7670_COM8_FASTAEC            0x80
+#define AL422B_COM8_FASTAEC            0x80
 
 // Unlimited AEC step size
-#define OV7670_COM8_AECSTEP            0x40
+#define AL422B_COM8_AECSTEP            0x40
 
 // Band filter enable
-#define OV7670_COM8_BFILT              0x20
+#define AL422B_COM8_BFILT              0x20
 
 // Auto gain enable
-#define OV7670_COM8_AGC                0x04
+#define AL422B_COM8_AGC                0x04
 
 // White balance enable
-#define OV7670_COM8_AWB                0x02
+#define AL422B_COM8_AWB                0x02
 
 // Auto exposure enable
-#define OV7670_COM8_AEC                0x01
+#define AL422B_COM8_AEC                0x01
 
 // HSYNC instead of HREF
-#define OV7670_COM10_HSYNC             0x40
+#define AL422B_COM10_HSYNC             0x40
 
 // Suppress PCLK on horiz blank
-#define OV7670_COM10_PCLK_HB           0x20
+#define AL422B_COM10_PCLK_HB           0x20
 
 // Reverse HREF
-#define OV7670_COM10_HREF_REV          0x08
+#define AL422B_COM10_HREF_REV          0x08
 
 // VSYNC on clock leading edge
-#define OV7670_COM10_VS_LEAD           0x04
+#define AL422B_COM10_VS_LEAD           0x04
 
 // VSYNC negative
-#define OV7670_COM10_VS_NEG            0x02
+#define AL422B_COM10_VS_NEG            0x02
 
 // HSYNC negative
-#define OV7670_COM10_HS_NEG            0x01
+#define AL422B_COM10_HS_NEG            0x01
 
 // Mirror image
-#define OV7670_MVFP_MIRROR             0x20
+#define AL422B_MVFP_MIRROR             0x20
 
 // Vertical flip
-#define OV7670_MVFP_FLIP               0x10
+#define AL422B_MVFP_FLIP               0x10
 
 // UYVY or VYUY - see com13
-#define OV7670_TSLB_YLAST              0x04
+#define AL422B_TSLB_YLAST              0x04
 
 // NIght mode enable
-#define OV7670_COM11_NIGHT             0x80
+#define AL422B_COM11_NIGHT             0x80
 
 // Two bit NM frame rate
-#define OV7670_COM11_NMFR              0x60
+#define AL422B_COM11_NMFR              0x60
 
 // Auto detect 50/60 Hz
-#define OV7670_COM11_HZAUTO            0x10
+#define AL422B_COM11_HZAUTO            0x10
 
 // Manual 50Hz select
-#define OV7670_COM11_50HZ              0x08
+#define AL422B_COM11_50HZ              0x08
 
 // Exp
-#define OV7670_COM11_EXP               0x02
+#define AL422B_COM11_EXP               0x02
 
 // HREF always
-#define OV7670_COM12_HREF              0x80
+#define AL422B_COM12_HREF              0x80
 
 // Gamma enable
-#define OV7670_COM13_GAMMA             0x80
+#define AL422B_COM13_GAMMA             0x80
 
 // UV saturation auto adjustment
-#define OV7670_COM13_UVSAT             0x40
+#define AL422B_COM13_UVSAT             0x40
 
 // V before U - w/TSLB
-#define OV7670_COM13_UVSWAP            0x01
+#define AL422B_COM13_UVSWAP            0x01
 
 // DCW/PCLK-scale enable
-#define OV7670_COM14_DCWEN             0x10
+#define AL422B_COM14_DCWEN             0x10
 
 // Data range 10 to F0
-#define OV7670_COM15_R10F0             0x00
+#define AL422B_COM15_R10F0             0x00
 
 // Data range 01 to FE
-#define OV7670_COM15_R01FE             0x80
+#define AL422B_COM15_R01FE             0x80
 
 // Data range 00 to FF
-#define OV7670_COM15_R00FF             0xc0
+#define AL422B_COM15_R00FF             0xc0
 
 // RGB565 output
-#define OV7670_COM15_RGB565            0x10
+#define AL422B_COM15_RGB565            0x10
 
 // RGB555 output
-#define OV7670_COM15_RGB555            0x30
+#define AL422B_COM15_RGB555            0x30
 
 // AWB gain enable
-#define OV7670_COM16_AWBGAIN           0x08
+#define AL422B_COM16_AWBGAIN           0x08
 
 // AEC window - must match COM4
-#define OV7670_COM17_AECWIN            0xc0
+#define AL422B_COM17_AECWIN            0xc0
 
 // DSP Color bar
-#define OV7670_COM17_CBAR              0x08
+#define AL422B_COM17_CBAR              0x08
 
 // Length
-#define OV7670_CMATRIX_LEN             0x06
+#define AL422B_CMATRIX_LEN             0x06
 
 // Black pixel correction enable
-#define OV7670_R76_BLKPCOR             0x80
+#define AL422B_R76_BLKPCOR             0x80
 
 // White pixel correction enable
-#define OV7670_R76_WHTPCOR             0x40
+#define AL422B_R76_WHTPCOR             0x40
 
 // Turn on RGB444, overrides 5x5
-#define OV7670_RGB444_ENABLE           0x02
+#define AL422B_RGB444_ENABLE           0x02
 
 // Empty nibble at end
-#define OV7670_RGB444_RGBX             0x01
+#define AL422B_RGB444_RGBX             0x01
 
 #include <Wire.h>
 #include <OutputStream.h>
 
-class CameraOV7670 {
+class CameraAL422B {
 private:
 
     unsigned char (*read)();
@@ -187,6 +187,8 @@ private:
     unsigned char vsyncPin;
 
     unsigned char hsyncPin;
+
+    unsigned char pclkPin;
 
     unsigned char address;
 public:
@@ -380,7 +382,7 @@ public:
     /**
      * Public constructor.
      */
-    void CameraOV7670(unsigned char (*read)(), unsigned char vsyncPin, unsigned char hsyncPin);
+    CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin, unsigned char hsyncPin, unsigned char pclkPin);
 
     /**
      * Clears the buffers.
@@ -395,4 +397,4 @@ public:
     int readFrame(OutputStream *out);
 };
 
-#endif /* __ARDUINO_DRIVER_CAMERA_OV7670_H__ */
+#endif /* __ARDUINO_DRIVER_CAMERA_AL422B_H__ */
