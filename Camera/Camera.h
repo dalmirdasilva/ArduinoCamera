@@ -19,7 +19,7 @@ public:
      * 
      * @retun               A frame.
      */
-    int readFrame(unsigned char *buf) = 0;
+    virtual int readFrame(unsigned char *buf) = 0;
 };
 
 #endif /* __ARDUINO_DRIVER_CAMERA_H__ */

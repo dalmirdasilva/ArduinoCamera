@@ -11,7 +11,11 @@
 #ifndef __ARDUINO_DRIVER_CAMERA_AL422B_CPP__
 #define __ARDUINO_DRIVER_CAMERA_AL422B_CPP__ 1
 
-CameraAL422B::CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin, unsigned char hsyncPin, unsigned char pclkPin) : Camera() {
+#include "CameraAL422B.h"
+
+CameraAL422B::CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin,
+        unsigned char hsyncPin, unsigned char pclkPin) :
+        Camera() {
     this->read = read;
     this->vsyncPin = vsyncPin;
     this->hsyncPin = hsyncPin;
@@ -21,7 +25,7 @@ CameraAL422B::CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin, unsi
 }
 
 int CameraAL422B::readFrame(OutputStream *out) {
-    
+
 }
 
 #endif /* __ARDUINO_DRIVER_CAMERA_AL422B_CPP__ */

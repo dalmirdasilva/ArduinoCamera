@@ -176,10 +176,11 @@
 // Empty nibble at end
 #define OV7670_RGB444_RGBX             0x01
 
-#include <Wire.h>
 #include <OutputStream.h>
+#include <Camera.h>
+#include <Wire.h>
 
-class CameraOV7670 {
+class CameraOV7670 : public Camera {
 private:
 
     unsigned char (*read)();
@@ -192,7 +193,7 @@ private:
 public:
 
     enum Register {
-        
+
         // Gain lower 8 bits (rest in vref)
         REG_GAIN = 0x00,
 
@@ -379,8 +380,14 @@ public:
 
     /**
      * Public constructor.
+     *
+     * @param read				The reader function.
+     * @param vsyncPin			The vertical sync pin number.
+     * @param hsyncPin			The horizontal sync pin number.
+     * @param pclkPin			The clock pin number.
      */
-    void CameraOV7670(unsigned char (*read)(), unsigned char vsyncPin, unsigned char hsyncPin);
+    CameraOV7670(unsigned char (*read)(), unsigned char vsyncPin,
+            unsigned char hsyncPin);
 
     /**
      * Clears the buffers.
@@ -390,7 +397,8 @@ public:
     /**
      * Returns a frame.
      * 
-     * @retun               A frame.
+     * @param out 				The frame out.
+     * @return 					The frame size.
      */
     int readFrame(OutputStream *out);
 };

@@ -176,10 +176,11 @@
 // Empty nibble at end
 #define AL422B_RGB444_RGBX             0x01
 
-#include <Wire.h>
 #include <OutputStream.h>
+#include <Camera.h>
+#include <Wire.h>
 
-class CameraAL422B {
+class CameraAL422B : public Camera {
 private:
 
     unsigned char (*read)();
@@ -194,7 +195,7 @@ private:
 public:
 
     enum Register {
-        
+
         // Gain lower 8 bits (rest in vref)
         REG_GAIN = 0x00,
 
@@ -381,8 +382,15 @@ public:
 
     /**
      * Public constructor.
+     *
+     * @param read				The reader function.
+     * @param vsyncPin			The vertical sync pin number.
+     * @param hsyncPin			The horizontal sync pin number.
+     * @param pclkPin			The clock pin number.
+     *
      */
-    CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin, unsigned char hsyncPin, unsigned char pclkPin);
+    CameraAL422B(unsigned char (*read)(), unsigned char vsyncPin,
+            unsigned char hsyncPin, unsigned char pclkPin);
 
     /**
      * Clears the buffers.

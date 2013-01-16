@@ -1,0 +1,101 @@
+In archive libArduinoCamera.a:
+
+CameraOV7670.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .group        00000008  00000000  00000000  00000034  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  1 .group        00000008  00000000  00000000  0000003c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  2 .text         00000020  00000000  00000000  00000044  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  3 .data         00000000  00000000  00000000  00000064  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .bss          00000000  00000000  00000000  00000064  2**0
+                  ALLOC
+  5 .rodata._ZTV6Camera 00000006  00000000  00000000  00000064  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  6 .rodata._ZTV12CameraOV7670 00000006  00000000  00000000  0000006a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  7 .comment      00000012  00000000  00000000  00000070  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <_ZN12CameraOV7670C1EPFhvEhh>:
+   0:	fc 01       	movw	r30, r24
+   2:	80 e0       	ldi	r24, 0x00	; 0
+   4:	90 e0       	ldi	r25, 0x00	; 0
+   6:	91 83       	std	Z+1, r25	; 0x01
+   8:	80 83       	st	Z, r24
+   a:	73 83       	std	Z+3, r23	; 0x03
+   c:	62 83       	std	Z+2, r22	; 0x02
+   e:	44 83       	std	Z+4, r20	; 0x04
+  10:	25 83       	std	Z+5, r18	; 0x05
+  12:	82 e4       	ldi	r24, 0x42	; 66
+  14:	86 83       	std	Z+6, r24	; 0x06
+  16:	80 e0       	ldi	r24, 0x00	; 0
+  18:	90 e0       	ldi	r25, 0x00	; 0
+  1a:	0c 94 00 00 	jmp	0	; 0x0 <_ZN12CameraOV7670C1EPFhvEhh>
+
+0000001e <_ZN12CameraOV76709readFrameEP12OutputStream>:
+  1e:	08 95       	ret
+
+CameraAL422B.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .group        00000008  00000000  00000000  00000034  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  1 .group        00000008  00000000  00000000  0000003c  2**2
+                  CONTENTS, READONLY, EXCLUDE, GROUP, LINK_ONCE_DISCARD
+  2 .text         00000026  00000000  00000000  00000044  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  3 .data         00000000  00000000  00000000  0000006a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .bss          00000000  00000000  00000000  0000006a  2**0
+                  ALLOC
+  5 .rodata._ZTV6Camera 00000006  00000000  00000000  0000006a  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  6 .rodata._ZTV12CameraAL422B 00000006  00000000  00000000  00000070  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  7 .comment      00000012  00000000  00000000  00000076  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <_ZN12CameraAL422BC1EPFhvEhhh>:
+   0:	0f 93       	push	r16
+   2:	fc 01       	movw	r30, r24
+   4:	80 e0       	ldi	r24, 0x00	; 0
+   6:	90 e0       	ldi	r25, 0x00	; 0
+   8:	91 83       	std	Z+1, r25	; 0x01
+   a:	80 83       	st	Z, r24
+   c:	73 83       	std	Z+3, r23	; 0x03
+   e:	62 83       	std	Z+2, r22	; 0x02
+  10:	44 83       	std	Z+4, r20	; 0x04
+  12:	25 83       	std	Z+5, r18	; 0x05
+  14:	06 83       	std	Z+6, r16	; 0x06
+  16:	82 e4       	ldi	r24, 0x42	; 66
+  18:	87 83       	std	Z+7, r24	; 0x07
+  1a:	80 e0       	ldi	r24, 0x00	; 0
+  1c:	90 e0       	ldi	r25, 0x00	; 0
+  1e:	0f 91       	pop	r16
+  20:	0c 94 00 00 	jmp	0	; 0x0 <_ZN12CameraAL422BC1EPFhvEhhh>
+
+00000024 <_ZN12CameraAL422B9readFrameEP12OutputStream>:
+  24:	08 95       	ret
+
+Camera.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000034  2**0
+                  ALLOC
+  3 .comment      00000012  00000000  00000000  00000034  2**0
+                  CONTENTS, READONLY
