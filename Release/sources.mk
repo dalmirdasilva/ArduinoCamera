@@ -32,4 +32,5 @@ SUBDIRS := \
 CameraOV7670 \
 CameraAL422B \
 Camera \
+.metadata/.plugins/org.eclipse.cdt.make.core \
 

@@ -24,7 +24,7 @@ CameraOV7670::CameraOV7670(unsigned char (*read)(), unsigned char vsyncPin,
 }
 
 int CameraOV7670::readFrame(OutputStream *out) {
-
+    return 0;
 }
 
 #endif /* __ARDUINO_DRIVER_CAMERA_OV7670_CPP__ */

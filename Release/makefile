@@ -11,6 +11,7 @@ RM := rm -rf
 -include CameraOV7670/subdir.mk
 -include CameraAL422B/subdir.mk
 -include Camera/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 

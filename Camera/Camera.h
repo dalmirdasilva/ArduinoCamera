@@ -15,11 +15,9 @@ class Camera {
 public:
 
     /**
-     * Returns a frame.
-     * 
-     * @retun               A frame.
+     * Captures a frame.
      */
-    virtual int readFrame(unsigned char *buf) = 0;
+    virtual bool capture() = 0;
 };
 
 #endif /* __ARDUINO_DRIVER_CAMERA_H__ */
