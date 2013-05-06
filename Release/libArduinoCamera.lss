@@ -55,11 +55,11 @@ CameraAL422B.o:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000648  00000000  00000000  00000034  2**0
+  0 .text         00000606  00000000  00000000  00000034  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
-  1 .data         00000022  00000000  00000000  0000067c  2**0
+  1 .data         0000000c  00000000  00000000  0000063a  2**0
                   CONTENTS, ALLOC, LOAD, RELOC, DATA
-  2 .bss          00000000  00000000  00000000  0000069e  2**0
+  2 .bss          00000000  00000000  00000000  00000646  2**0
                   ALLOC
 Disassembly of section .text:
 
@@ -461,405 +461,377 @@ Disassembly of section .text:
  304:	f6 2e       	mov	r15, r22
  306:	80 e0       	ldi	r24, 0x00	; 0
  308:	90 e0       	ldi	r25, 0x00	; 0
- 30a:	60 e0       	ldi	r22, 0x00	; 0
- 30c:	70 e0       	ldi	r23, 0x00	; 0
+ 30a:	f8 01       	movw	r30, r16
+ 30c:	60 85       	ldd	r22, Z+8	; 0x08
  30e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
  312:	80 e0       	ldi	r24, 0x00	; 0
  314:	90 e0       	ldi	r25, 0x00	; 0
- 316:	f8 01       	movw	r30, r16
- 318:	60 85       	ldd	r22, Z+8	; 0x08
- 31a:	40 e1       	ldi	r20, 0x10	; 16
- 31c:	50 e0       	ldi	r21, 0x00	; 0
- 31e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 322:	80 e0       	ldi	r24, 0x00	; 0
- 324:	90 e0       	ldi	r25, 0x00	; 0
- 326:	f8 01       	movw	r30, r16
- 328:	60 85       	ldd	r22, Z+8	; 0x08
- 32a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 32e:	80 e0       	ldi	r24, 0x00	; 0
- 330:	90 e0       	ldi	r25, 0x00	; 0
- 332:	6f 2d       	mov	r22, r15
- 334:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 338:	80 e0       	ldi	r24, 0x00	; 0
- 33a:	90 e0       	ldi	r25, 0x00	; 0
- 33c:	60 e0       	ldi	r22, 0x00	; 0
- 33e:	70 e0       	ldi	r23, 0x00	; 0
- 340:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 344:	80 e0       	ldi	r24, 0x00	; 0
- 346:	90 e0       	ldi	r25, 0x00	; 0
- 348:	60 e0       	ldi	r22, 0x00	; 0
- 34a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 34e:	68 2f       	mov	r22, r24
- 350:	80 e0       	ldi	r24, 0x00	; 0
- 352:	90 e0       	ldi	r25, 0x00	; 0
- 354:	4a e0       	ldi	r20, 0x0A	; 10
- 356:	50 e0       	ldi	r21, 0x00	; 0
- 358:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 35c:	80 e0       	ldi	r24, 0x00	; 0
- 35e:	90 e0       	ldi	r25, 0x00	; 0
- 360:	f8 01       	movw	r30, r16
- 362:	60 85       	ldd	r22, Z+8	; 0x08
- 364:	41 e0       	ldi	r20, 0x01	; 1
- 366:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 36a:	00 c0       	rjmp	.+0      	; 0x36c <_ZN12CameraAL422B12readRegisterENS_8RegisterE+0x70>
- 36c:	80 e0       	ldi	r24, 0x00	; 0
- 36e:	90 e0       	ldi	r25, 0x00	; 0
- 370:	60 e0       	ldi	r22, 0x00	; 0
- 372:	70 e0       	ldi	r23, 0x00	; 0
+ 316:	6f 2d       	mov	r22, r15
+ 318:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 31c:	80 e0       	ldi	r24, 0x00	; 0
+ 31e:	90 e0       	ldi	r25, 0x00	; 0
+ 320:	60 e0       	ldi	r22, 0x00	; 0
+ 322:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 326:	80 e0       	ldi	r24, 0x00	; 0
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	f8 01       	movw	r30, r16
+ 32c:	60 85       	ldd	r22, Z+8	; 0x08
+ 32e:	41 e0       	ldi	r20, 0x01	; 1
+ 330:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 334:	00 c0       	rjmp	.+0      	; 0x336 <_ZN12CameraAL422B12readRegisterENS_8RegisterE+0x3a>
+ 336:	6a e0       	ldi	r22, 0x0A	; 10
+ 338:	70 e0       	ldi	r23, 0x00	; 0
+ 33a:	80 e0       	ldi	r24, 0x00	; 0
+ 33c:	90 e0       	ldi	r25, 0x00	; 0
+ 33e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 342:	80 e0       	ldi	r24, 0x00	; 0
+ 344:	90 e0       	ldi	r25, 0x00	; 0
+ 346:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 34a:	89 2b       	or	r24, r25
+ 34c:	01 f0       	breq	.+0      	; 0x34e <_ZN12CameraAL422B12readRegisterENS_8RegisterE+0x52>
+ 34e:	80 e0       	ldi	r24, 0x00	; 0
+ 350:	90 e0       	ldi	r25, 0x00	; 0
+ 352:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 356:	1f 91       	pop	r17
+ 358:	0f 91       	pop	r16
+ 35a:	ff 90       	pop	r15
+ 35c:	08 95       	ret
+
+0000035e <_ZN12CameraAL422B13writeRegisterENS_8RegisterEh>:
+ 35e:	ef 92       	push	r14
+ 360:	ff 92       	push	r15
+ 362:	0f 93       	push	r16
+ 364:	1f 93       	push	r17
+ 366:	fc 01       	movw	r30, r24
+ 368:	f6 2e       	mov	r15, r22
+ 36a:	e4 2e       	mov	r14, r20
+ 36c:	00 e0       	ldi	r16, 0x00	; 0
+ 36e:	10 e0       	ldi	r17, 0x00	; 0
+ 370:	c8 01       	movw	r24, r16
+ 372:	60 85       	ldd	r22, Z+8	; 0x08
  374:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 378:	64 e6       	ldi	r22, 0x64	; 100
- 37a:	70 e0       	ldi	r23, 0x00	; 0
- 37c:	80 e0       	ldi	r24, 0x00	; 0
- 37e:	90 e0       	ldi	r25, 0x00	; 0
- 380:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 384:	80 e0       	ldi	r24, 0x00	; 0
- 386:	90 e0       	ldi	r25, 0x00	; 0
- 388:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 38c:	89 2b       	or	r24, r25
- 38e:	01 f0       	breq	.+0      	; 0x390 <_ZN12CameraAL422B12readRegisterENS_8RegisterE+0x94>
- 390:	80 e0       	ldi	r24, 0x00	; 0
- 392:	90 e0       	ldi	r25, 0x00	; 0
- 394:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 398:	1f 91       	pop	r17
- 39a:	0f 91       	pop	r16
- 39c:	ff 90       	pop	r15
- 39e:	08 95       	ret
+ 378:	c8 01       	movw	r24, r16
+ 37a:	6f 2d       	mov	r22, r15
+ 37c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 380:	c8 01       	movw	r24, r16
+ 382:	6e 2d       	mov	r22, r14
+ 384:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 388:	c8 01       	movw	r24, r16
+ 38a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 38e:	1f 91       	pop	r17
+ 390:	0f 91       	pop	r16
+ 392:	ff 90       	pop	r15
+ 394:	ef 90       	pop	r14
+ 396:	08 95       	ret
 
-000003a0 <_ZN12CameraAL422B13writeRegisterENS_8RegisterEh>:
- 3a0:	ef 92       	push	r14
- 3a2:	ff 92       	push	r15
- 3a4:	0f 93       	push	r16
- 3a6:	1f 93       	push	r17
- 3a8:	fc 01       	movw	r30, r24
- 3aa:	f6 2e       	mov	r15, r22
- 3ac:	e4 2e       	mov	r14, r20
- 3ae:	00 e0       	ldi	r16, 0x00	; 0
- 3b0:	10 e0       	ldi	r17, 0x00	; 0
- 3b2:	c8 01       	movw	r24, r16
- 3b4:	60 85       	ldd	r22, Z+8	; 0x08
- 3b6:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 3ba:	c8 01       	movw	r24, r16
- 3bc:	6f 2d       	mov	r22, r15
- 3be:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 3c2:	c8 01       	movw	r24, r16
- 3c4:	6e 2d       	mov	r22, r14
- 3c6:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 3ca:	c8 01       	movw	r24, r16
- 3cc:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 3d0:	1f 91       	pop	r17
- 3d2:	0f 91       	pop	r16
- 3d4:	ff 90       	pop	r15
- 3d6:	ef 90       	pop	r14
- 3d8:	08 95       	ret
+00000398 <_ZN12CameraAL422B21configureRegisterBitsENS_8RegisterENS_4MaskEh>:
+ 398:	df 92       	push	r13
+ 39a:	ef 92       	push	r14
+ 39c:	ff 92       	push	r15
+ 39e:	0f 93       	push	r16
+ 3a0:	1f 93       	push	r17
+ 3a2:	7c 01       	movw	r14, r24
+ 3a4:	d6 2e       	mov	r13, r22
+ 3a6:	04 2f       	mov	r16, r20
+ 3a8:	12 2f       	mov	r17, r18
+ 3aa:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 3ae:	40 2f       	mov	r20, r16
+ 3b0:	40 95       	com	r20
+ 3b2:	48 23       	and	r20, r24
+ 3b4:	10 23       	and	r17, r16
+ 3b6:	41 2b       	or	r20, r17
+ 3b8:	c7 01       	movw	r24, r14
+ 3ba:	6d 2d       	mov	r22, r13
+ 3bc:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 3c0:	1f 91       	pop	r17
+ 3c2:	0f 91       	pop	r16
+ 3c4:	ff 90       	pop	r15
+ 3c6:	ef 90       	pop	r14
+ 3c8:	df 90       	pop	r13
+ 3ca:	08 95       	ret
 
-000003da <_ZN12CameraAL422B21configureRegisterBitsENS_8RegisterENS_4MaskEh>:
- 3da:	df 92       	push	r13
- 3dc:	ef 92       	push	r14
- 3de:	ff 92       	push	r15
- 3e0:	0f 93       	push	r16
- 3e2:	1f 93       	push	r17
- 3e4:	7c 01       	movw	r14, r24
- 3e6:	d6 2e       	mov	r13, r22
- 3e8:	04 2f       	mov	r16, r20
- 3ea:	12 2f       	mov	r17, r18
- 3ec:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 3f0:	40 2f       	mov	r20, r16
- 3f2:	40 95       	com	r20
- 3f4:	48 23       	and	r20, r24
- 3f6:	10 23       	and	r17, r16
- 3f8:	41 2b       	or	r20, r17
- 3fa:	c7 01       	movw	r24, r14
- 3fc:	6d 2d       	mov	r22, r13
- 3fe:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 402:	1f 91       	pop	r17
- 404:	0f 91       	pop	r16
- 406:	ff 90       	pop	r15
- 408:	ef 90       	pop	r14
- 40a:	df 90       	pop	r13
- 40c:	08 95       	ret
+000003cc <_ZN12CameraAL422B12setRGBOutputENS_9RGBOutputE>:
+ 3cc:	26 2f       	mov	r18, r22
+ 3ce:	60 e4       	ldi	r22, 0x40	; 64
+ 3d0:	40 e3       	ldi	r20, 0x30	; 48
+ 3d2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 3d6:	08 95       	ret
 
-0000040e <_ZN12CameraAL422B12setRGBOutputENS_9RGBOutputE>:
- 40e:	26 2f       	mov	r18, r22
- 410:	60 e4       	ldi	r22, 0x40	; 64
- 412:	40 e3       	ldi	r20, 0x30	; 48
- 414:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 418:	08 95       	ret
+000003d8 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE>:
+ 3d8:	1f 93       	push	r17
+ 3da:	cf 93       	push	r28
+ 3dc:	df 93       	push	r29
+ 3de:	ec 01       	movw	r28, r24
+ 3e0:	16 2f       	mov	r17, r22
+ 3e2:	62 e1       	ldi	r22, 0x12	; 18
+ 3e4:	48 e3       	ldi	r20, 0x38	; 56
+ 3e6:	21 2f       	mov	r18, r17
+ 3e8:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 3ec:	18 30       	cpi	r17, 0x08	; 8
+ 3ee:	01 f0       	breq	.+0      	; 0x3f0 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x18>
+ 3f0:	19 30       	cpi	r17, 0x09	; 9
+ 3f2:	00 f4       	brcc	.+0      	; 0x3f4 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x1c>
+ 3f4:	11 23       	and	r17, r17
+ 3f6:	01 f0       	breq	.+0      	; 0x3f8 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x20>
+ 3f8:	00 c0       	rjmp	.+0      	; 0x3fa <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x22>
+ 3fa:	10 31       	cpi	r17, 0x10	; 16
+ 3fc:	01 f0       	breq	.+0      	; 0x3fe <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x26>
+ 3fe:	10 32       	cpi	r17, 0x20	; 32
+ 400:	01 f4       	brne	.+0      	; 0x402 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x2a>
+ 402:	00 c0       	rjmp	.+0      	; 0x404 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x2c>
+ 404:	80 e8       	ldi	r24, 0x80	; 128
+ 406:	92 e0       	ldi	r25, 0x02	; 2
+ 408:	9a 87       	std	Y+10, r25	; 0x0a
+ 40a:	89 87       	std	Y+9, r24	; 0x09
+ 40c:	80 ee       	ldi	r24, 0xE0	; 224
+ 40e:	91 e0       	ldi	r25, 0x01	; 1
+ 410:	00 c0       	rjmp	.+0      	; 0x412 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x3a>
+ 412:	80 e4       	ldi	r24, 0x40	; 64
+ 414:	91 e0       	ldi	r25, 0x01	; 1
+ 416:	9a 87       	std	Y+10, r25	; 0x0a
+ 418:	89 87       	std	Y+9, r24	; 0x09
+ 41a:	80 ef       	ldi	r24, 0xF0	; 240
+ 41c:	90 e0       	ldi	r25, 0x00	; 0
+ 41e:	00 c0       	rjmp	.+0      	; 0x420 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x48>
+ 420:	80 e6       	ldi	r24, 0x60	; 96
+ 422:	91 e0       	ldi	r25, 0x01	; 1
+ 424:	9a 87       	std	Y+10, r25	; 0x0a
+ 426:	89 87       	std	Y+9, r24	; 0x09
+ 428:	80 e2       	ldi	r24, 0x20	; 32
+ 42a:	91 e0       	ldi	r25, 0x01	; 1
+ 42c:	00 c0       	rjmp	.+0      	; 0x42e <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x56>
+ 42e:	80 eb       	ldi	r24, 0xB0	; 176
+ 430:	90 e0       	ldi	r25, 0x00	; 0
+ 432:	9a 87       	std	Y+10, r25	; 0x0a
+ 434:	89 87       	std	Y+9, r24	; 0x09
+ 436:	80 e9       	ldi	r24, 0x90	; 144
+ 438:	90 e0       	ldi	r25, 0x00	; 0
+ 43a:	9c 87       	std	Y+12, r25	; 0x0c
+ 43c:	8b 87       	std	Y+11, r24	; 0x0b
+ 43e:	df 91       	pop	r29
+ 440:	cf 91       	pop	r28
+ 442:	1f 91       	pop	r17
+ 444:	08 95       	ret
 
-0000041a <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE>:
- 41a:	1f 93       	push	r17
- 41c:	cf 93       	push	r28
- 41e:	df 93       	push	r29
- 420:	ec 01       	movw	r28, r24
- 422:	16 2f       	mov	r17, r22
- 424:	62 e1       	ldi	r22, 0x12	; 18
- 426:	48 e3       	ldi	r20, 0x38	; 56
- 428:	21 2f       	mov	r18, r17
- 42a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 42e:	18 30       	cpi	r17, 0x08	; 8
- 430:	01 f0       	breq	.+0      	; 0x432 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x18>
- 432:	19 30       	cpi	r17, 0x09	; 9
- 434:	00 f4       	brcc	.+0      	; 0x436 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x1c>
- 436:	11 23       	and	r17, r17
- 438:	01 f0       	breq	.+0      	; 0x43a <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x20>
- 43a:	00 c0       	rjmp	.+0      	; 0x43c <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x22>
- 43c:	10 31       	cpi	r17, 0x10	; 16
- 43e:	01 f0       	breq	.+0      	; 0x440 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x26>
- 440:	10 32       	cpi	r17, 0x20	; 32
- 442:	01 f4       	brne	.+0      	; 0x444 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x2a>
- 444:	00 c0       	rjmp	.+0      	; 0x446 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x2c>
- 446:	80 e8       	ldi	r24, 0x80	; 128
- 448:	92 e0       	ldi	r25, 0x02	; 2
- 44a:	9a 87       	std	Y+10, r25	; 0x0a
- 44c:	89 87       	std	Y+9, r24	; 0x09
- 44e:	80 ee       	ldi	r24, 0xE0	; 224
- 450:	91 e0       	ldi	r25, 0x01	; 1
- 452:	00 c0       	rjmp	.+0      	; 0x454 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x3a>
- 454:	80 e4       	ldi	r24, 0x40	; 64
- 456:	91 e0       	ldi	r25, 0x01	; 1
- 458:	9a 87       	std	Y+10, r25	; 0x0a
- 45a:	89 87       	std	Y+9, r24	; 0x09
- 45c:	80 ef       	ldi	r24, 0xF0	; 240
- 45e:	90 e0       	ldi	r25, 0x00	; 0
- 460:	00 c0       	rjmp	.+0      	; 0x462 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x48>
- 462:	80 e6       	ldi	r24, 0x60	; 96
- 464:	91 e0       	ldi	r25, 0x01	; 1
- 466:	9a 87       	std	Y+10, r25	; 0x0a
- 468:	89 87       	std	Y+9, r24	; 0x09
- 46a:	80 e2       	ldi	r24, 0x20	; 32
- 46c:	91 e0       	ldi	r25, 0x01	; 1
- 46e:	00 c0       	rjmp	.+0      	; 0x470 <_ZN12CameraAL422B19setOutputResolutionENS_16OutputResolutionE+0x56>
- 470:	80 eb       	ldi	r24, 0xB0	; 176
+00000446 <_ZN12CameraAL422B15setOutputFormatENS_12OutputFormatE>:
+ 446:	26 2f       	mov	r18, r22
+ 448:	62 e1       	ldi	r22, 0x12	; 18
+ 44a:	45 e0       	ldi	r20, 0x05	; 5
+ 44c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 450:	08 95       	ret
+
+00000452 <_ZN12CameraAL422B9readFrameEP12OutputStream>:
+ 452:	cf 92       	push	r12
+ 454:	df 92       	push	r13
+ 456:	ef 92       	push	r14
+ 458:	ff 92       	push	r15
+ 45a:	0f 93       	push	r16
+ 45c:	1f 93       	push	r17
+ 45e:	cf 93       	push	r28
+ 460:	df 93       	push	r29
+ 462:	7c 01       	movw	r14, r24
+ 464:	6b 01       	movw	r12, r22
+ 466:	fc 01       	movw	r30, r24
+ 468:	37 81       	ldd	r19, Z+7	; 0x07
+ 46a:	38 30       	cpi	r19, 0x08	; 8
+ 46c:	00 f4       	brcc	.+0      	; 0x46e <_ZN12CameraAL422B9readFrameEP12OutputStream+0x1c>
+ 46e:	2b b1       	in	r18, 0x0b	; 11
+ 470:	81 e0       	ldi	r24, 0x01	; 1
  472:	90 e0       	ldi	r25, 0x00	; 0
- 474:	9a 87       	std	Y+10, r25	; 0x0a
- 476:	89 87       	std	Y+9, r24	; 0x09
- 478:	80 e9       	ldi	r24, 0x90	; 144
- 47a:	90 e0       	ldi	r25, 0x00	; 0
- 47c:	9c 87       	std	Y+12, r25	; 0x0c
- 47e:	8b 87       	std	Y+11, r24	; 0x0b
- 480:	df 91       	pop	r29
- 482:	cf 91       	pop	r28
- 484:	1f 91       	pop	r17
- 486:	08 95       	ret
-
-00000488 <_ZN12CameraAL422B15setOutputFormatENS_12OutputFormatE>:
- 488:	26 2f       	mov	r18, r22
- 48a:	62 e1       	ldi	r22, 0x12	; 18
- 48c:	45 e0       	ldi	r20, 0x05	; 5
- 48e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 492:	08 95       	ret
-
-00000494 <_ZN12CameraAL422B9readFrameEP12OutputStream>:
- 494:	cf 92       	push	r12
- 496:	df 92       	push	r13
- 498:	ef 92       	push	r14
- 49a:	ff 92       	push	r15
- 49c:	0f 93       	push	r16
- 49e:	1f 93       	push	r17
- 4a0:	cf 93       	push	r28
- 4a2:	df 93       	push	r29
- 4a4:	7c 01       	movw	r14, r24
- 4a6:	6b 01       	movw	r12, r22
- 4a8:	fc 01       	movw	r30, r24
- 4aa:	37 81       	ldd	r19, Z+7	; 0x07
- 4ac:	38 30       	cpi	r19, 0x08	; 8
- 4ae:	00 f4       	brcc	.+0      	; 0x4b0 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x1c>
- 4b0:	2b b1       	in	r18, 0x0b	; 11
- 4b2:	81 e0       	ldi	r24, 0x01	; 1
- 4b4:	90 e0       	ldi	r25, 0x00	; 0
- 4b6:	00 c0       	rjmp	.+0      	; 0x4b8 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x24>
- 4b8:	88 0f       	add	r24, r24
- 4ba:	99 1f       	adc	r25, r25
- 4bc:	3a 95       	dec	r19
- 4be:	02 f4       	brpl	.+0      	; 0x4c0 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x2c>
- 4c0:	80 95       	com	r24
- 4c2:	82 23       	and	r24, r18
- 4c4:	8b b9       	out	0x0b, r24	; 11
- 4c6:	00 c0       	rjmp	.+0      	; 0x4c8 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x34>
- 4c8:	43 2f       	mov	r20, r19
- 4ca:	50 e0       	ldi	r21, 0x00	; 0
- 4cc:	3e 30       	cpi	r19, 0x0E	; 14
- 4ce:	00 f0       	brcs	.+0      	; 0x4d0 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x3c>
- 4d0:	28 b1       	in	r18, 0x08	; 8
- 4d2:	4e 50       	subi	r20, 0x0E	; 14
- 4d4:	50 40       	sbci	r21, 0x00	; 0
+ 474:	00 c0       	rjmp	.+0      	; 0x476 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x24>
+ 476:	88 0f       	add	r24, r24
+ 478:	99 1f       	adc	r25, r25
+ 47a:	3a 95       	dec	r19
+ 47c:	02 f4       	brpl	.+0      	; 0x47e <_ZN12CameraAL422B9readFrameEP12OutputStream+0x2c>
+ 47e:	80 95       	com	r24
+ 480:	82 23       	and	r24, r18
+ 482:	8b b9       	out	0x0b, r24	; 11
+ 484:	00 c0       	rjmp	.+0      	; 0x486 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x34>
+ 486:	43 2f       	mov	r20, r19
+ 488:	50 e0       	ldi	r21, 0x00	; 0
+ 48a:	3e 30       	cpi	r19, 0x0E	; 14
+ 48c:	00 f0       	brcs	.+0      	; 0x48e <_ZN12CameraAL422B9readFrameEP12OutputStream+0x3c>
+ 48e:	28 b1       	in	r18, 0x08	; 8
+ 490:	4e 50       	subi	r20, 0x0E	; 14
+ 492:	50 40       	sbci	r21, 0x00	; 0
+ 494:	81 e0       	ldi	r24, 0x01	; 1
+ 496:	90 e0       	ldi	r25, 0x00	; 0
+ 498:	00 c0       	rjmp	.+0      	; 0x49a <_ZN12CameraAL422B9readFrameEP12OutputStream+0x48>
+ 49a:	88 0f       	add	r24, r24
+ 49c:	99 1f       	adc	r25, r25
+ 49e:	4a 95       	dec	r20
+ 4a0:	02 f4       	brpl	.+0      	; 0x4a2 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x50>
+ 4a2:	80 95       	com	r24
+ 4a4:	82 23       	and	r24, r18
+ 4a6:	88 b9       	out	0x08, r24	; 8
+ 4a8:	00 c0       	rjmp	.+0      	; 0x4aa <_ZN12CameraAL422B9readFrameEP12OutputStream+0x58>
+ 4aa:	25 b1       	in	r18, 0x05	; 5
+ 4ac:	48 50       	subi	r20, 0x08	; 8
+ 4ae:	50 40       	sbci	r21, 0x00	; 0
+ 4b0:	81 e0       	ldi	r24, 0x01	; 1
+ 4b2:	90 e0       	ldi	r25, 0x00	; 0
+ 4b4:	00 c0       	rjmp	.+0      	; 0x4b6 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x64>
+ 4b6:	88 0f       	add	r24, r24
+ 4b8:	99 1f       	adc	r25, r25
+ 4ba:	4a 95       	dec	r20
+ 4bc:	02 f4       	brpl	.+0      	; 0x4be <_ZN12CameraAL422B9readFrameEP12OutputStream+0x6c>
+ 4be:	80 95       	com	r24
+ 4c0:	82 23       	and	r24, r18
+ 4c2:	85 b9       	out	0x05, r24	; 5
+ 4c4:	84 e6       	ldi	r24, 0x64	; 100
+ 4c6:	90 e0       	ldi	r25, 0x00	; 0
+ 4c8:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 4cc:	f7 01       	movw	r30, r14
+ 4ce:	37 81       	ldd	r19, Z+7	; 0x07
+ 4d0:	38 30       	cpi	r19, 0x08	; 8
+ 4d2:	00 f4       	brcc	.+0      	; 0x4d4 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x82>
+ 4d4:	2b b1       	in	r18, 0x0b	; 11
  4d6:	81 e0       	ldi	r24, 0x01	; 1
  4d8:	90 e0       	ldi	r25, 0x00	; 0
- 4da:	00 c0       	rjmp	.+0      	; 0x4dc <_ZN12CameraAL422B9readFrameEP12OutputStream+0x48>
+ 4da:	00 c0       	rjmp	.+0      	; 0x4dc <_ZN12CameraAL422B9readFrameEP12OutputStream+0x8a>
  4dc:	88 0f       	add	r24, r24
  4de:	99 1f       	adc	r25, r25
- 4e0:	4a 95       	dec	r20
- 4e2:	02 f4       	brpl	.+0      	; 0x4e4 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x50>
- 4e4:	80 95       	com	r24
- 4e6:	82 23       	and	r24, r18
- 4e8:	88 b9       	out	0x08, r24	; 8
- 4ea:	00 c0       	rjmp	.+0      	; 0x4ec <_ZN12CameraAL422B9readFrameEP12OutputStream+0x58>
- 4ec:	25 b1       	in	r18, 0x05	; 5
- 4ee:	48 50       	subi	r20, 0x08	; 8
- 4f0:	50 40       	sbci	r21, 0x00	; 0
- 4f2:	81 e0       	ldi	r24, 0x01	; 1
- 4f4:	90 e0       	ldi	r25, 0x00	; 0
- 4f6:	00 c0       	rjmp	.+0      	; 0x4f8 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x64>
- 4f8:	88 0f       	add	r24, r24
- 4fa:	99 1f       	adc	r25, r25
- 4fc:	4a 95       	dec	r20
- 4fe:	02 f4       	brpl	.+0      	; 0x500 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x6c>
- 500:	80 95       	com	r24
- 502:	82 23       	and	r24, r18
- 504:	85 b9       	out	0x05, r24	; 5
- 506:	84 e6       	ldi	r24, 0x64	; 100
- 508:	90 e0       	ldi	r25, 0x00	; 0
- 50a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 50e:	f7 01       	movw	r30, r14
- 510:	37 81       	ldd	r19, Z+7	; 0x07
- 512:	38 30       	cpi	r19, 0x08	; 8
- 514:	00 f4       	brcc	.+0      	; 0x516 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x82>
- 516:	2b b1       	in	r18, 0x0b	; 11
- 518:	81 e0       	ldi	r24, 0x01	; 1
- 51a:	90 e0       	ldi	r25, 0x00	; 0
- 51c:	00 c0       	rjmp	.+0      	; 0x51e <_ZN12CameraAL422B9readFrameEP12OutputStream+0x8a>
- 51e:	88 0f       	add	r24, r24
- 520:	99 1f       	adc	r25, r25
- 522:	3a 95       	dec	r19
- 524:	02 f4       	brpl	.+0      	; 0x526 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x92>
- 526:	28 2b       	or	r18, r24
- 528:	2b b9       	out	0x0b, r18	; 11
- 52a:	00 c0       	rjmp	.+0      	; 0x52c <_ZN12CameraAL422B9readFrameEP12OutputStream+0x98>
- 52c:	43 2f       	mov	r20, r19
- 52e:	50 e0       	ldi	r21, 0x00	; 0
- 530:	3e 30       	cpi	r19, 0x0E	; 14
- 532:	00 f0       	brcs	.+0      	; 0x534 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xa0>
- 534:	28 b1       	in	r18, 0x08	; 8
- 536:	4e 50       	subi	r20, 0x0E	; 14
- 538:	50 40       	sbci	r21, 0x00	; 0
- 53a:	81 e0       	ldi	r24, 0x01	; 1
- 53c:	90 e0       	ldi	r25, 0x00	; 0
- 53e:	00 c0       	rjmp	.+0      	; 0x540 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xac>
- 540:	88 0f       	add	r24, r24
- 542:	99 1f       	adc	r25, r25
- 544:	4a 95       	dec	r20
- 546:	02 f4       	brpl	.+0      	; 0x548 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xb4>
- 548:	28 2b       	or	r18, r24
- 54a:	28 b9       	out	0x08, r18	; 8
- 54c:	00 c0       	rjmp	.+0      	; 0x54e <_ZN12CameraAL422B9readFrameEP12OutputStream+0xba>
- 54e:	25 b1       	in	r18, 0x05	; 5
- 550:	48 50       	subi	r20, 0x08	; 8
- 552:	50 40       	sbci	r21, 0x00	; 0
- 554:	81 e0       	ldi	r24, 0x01	; 1
- 556:	90 e0       	ldi	r25, 0x00	; 0
- 558:	00 c0       	rjmp	.+0      	; 0x55a <_ZN12CameraAL422B9readFrameEP12OutputStream+0xc6>
- 55a:	88 0f       	add	r24, r24
- 55c:	99 1f       	adc	r25, r25
- 55e:	4a 95       	dec	r20
- 560:	02 f4       	brpl	.+0      	; 0x562 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xce>
- 562:	28 2b       	or	r18, r24
- 564:	25 b9       	out	0x05, r18	; 5
- 566:	00 e0       	ldi	r16, 0x00	; 0
- 568:	10 e0       	ldi	r17, 0x00	; 0
- 56a:	c0 e0       	ldi	r28, 0x00	; 0
- 56c:	d0 e0       	ldi	r29, 0x00	; 0
- 56e:	00 c0       	rjmp	.+0      	; 0x570 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xdc>
- 570:	c7 01       	movw	r24, r14
- 572:	b6 01       	movw	r22, r12
- 574:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 578:	c8 0f       	add	r28, r24
- 57a:	d9 1f       	adc	r29, r25
- 57c:	0f 5f       	subi	r16, 0xFF	; 255
- 57e:	1f 4f       	sbci	r17, 0xFF	; 255
- 580:	f7 01       	movw	r30, r14
- 582:	83 85       	ldd	r24, Z+11	; 0x0b
- 584:	94 85       	ldd	r25, Z+12	; 0x0c
- 586:	08 17       	cp	r16, r24
- 588:	19 07       	cpc	r17, r25
- 58a:	04 f0       	brlt	.+0      	; 0x58c <_ZN12CameraAL422B9readFrameEP12OutputStream+0xf8>
- 58c:	ce 01       	movw	r24, r28
- 58e:	df 91       	pop	r29
- 590:	cf 91       	pop	r28
- 592:	1f 91       	pop	r17
- 594:	0f 91       	pop	r16
- 596:	ff 90       	pop	r15
- 598:	ef 90       	pop	r14
- 59a:	df 90       	pop	r13
- 59c:	cf 90       	pop	r12
- 59e:	08 95       	ret
+ 4e0:	3a 95       	dec	r19
+ 4e2:	02 f4       	brpl	.+0      	; 0x4e4 <_ZN12CameraAL422B9readFrameEP12OutputStream+0x92>
+ 4e4:	28 2b       	or	r18, r24
+ 4e6:	2b b9       	out	0x0b, r18	; 11
+ 4e8:	00 c0       	rjmp	.+0      	; 0x4ea <_ZN12CameraAL422B9readFrameEP12OutputStream+0x98>
+ 4ea:	43 2f       	mov	r20, r19
+ 4ec:	50 e0       	ldi	r21, 0x00	; 0
+ 4ee:	3e 30       	cpi	r19, 0x0E	; 14
+ 4f0:	00 f0       	brcs	.+0      	; 0x4f2 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xa0>
+ 4f2:	28 b1       	in	r18, 0x08	; 8
+ 4f4:	4e 50       	subi	r20, 0x0E	; 14
+ 4f6:	50 40       	sbci	r21, 0x00	; 0
+ 4f8:	81 e0       	ldi	r24, 0x01	; 1
+ 4fa:	90 e0       	ldi	r25, 0x00	; 0
+ 4fc:	00 c0       	rjmp	.+0      	; 0x4fe <_ZN12CameraAL422B9readFrameEP12OutputStream+0xac>
+ 4fe:	88 0f       	add	r24, r24
+ 500:	99 1f       	adc	r25, r25
+ 502:	4a 95       	dec	r20
+ 504:	02 f4       	brpl	.+0      	; 0x506 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xb4>
+ 506:	28 2b       	or	r18, r24
+ 508:	28 b9       	out	0x08, r18	; 8
+ 50a:	00 c0       	rjmp	.+0      	; 0x50c <_ZN12CameraAL422B9readFrameEP12OutputStream+0xba>
+ 50c:	25 b1       	in	r18, 0x05	; 5
+ 50e:	48 50       	subi	r20, 0x08	; 8
+ 510:	50 40       	sbci	r21, 0x00	; 0
+ 512:	81 e0       	ldi	r24, 0x01	; 1
+ 514:	90 e0       	ldi	r25, 0x00	; 0
+ 516:	00 c0       	rjmp	.+0      	; 0x518 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xc6>
+ 518:	88 0f       	add	r24, r24
+ 51a:	99 1f       	adc	r25, r25
+ 51c:	4a 95       	dec	r20
+ 51e:	02 f4       	brpl	.+0      	; 0x520 <_ZN12CameraAL422B9readFrameEP12OutputStream+0xce>
+ 520:	28 2b       	or	r18, r24
+ 522:	25 b9       	out	0x05, r18	; 5
+ 524:	00 e0       	ldi	r16, 0x00	; 0
+ 526:	10 e0       	ldi	r17, 0x00	; 0
+ 528:	c0 e0       	ldi	r28, 0x00	; 0
+ 52a:	d0 e0       	ldi	r29, 0x00	; 0
+ 52c:	00 c0       	rjmp	.+0      	; 0x52e <_ZN12CameraAL422B9readFrameEP12OutputStream+0xdc>
+ 52e:	c7 01       	movw	r24, r14
+ 530:	b6 01       	movw	r22, r12
+ 532:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 536:	c8 0f       	add	r28, r24
+ 538:	d9 1f       	adc	r29, r25
+ 53a:	0f 5f       	subi	r16, 0xFF	; 255
+ 53c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 53e:	f7 01       	movw	r30, r14
+ 540:	83 85       	ldd	r24, Z+11	; 0x0b
+ 542:	94 85       	ldd	r25, Z+12	; 0x0c
+ 544:	08 17       	cp	r16, r24
+ 546:	19 07       	cpc	r17, r25
+ 548:	04 f0       	brlt	.+0      	; 0x54a <_ZN12CameraAL422B9readFrameEP12OutputStream+0xf8>
+ 54a:	ce 01       	movw	r24, r28
+ 54c:	df 91       	pop	r29
+ 54e:	cf 91       	pop	r28
+ 550:	1f 91       	pop	r17
+ 552:	0f 91       	pop	r16
+ 554:	ff 90       	pop	r15
+ 556:	ef 90       	pop	r14
+ 558:	df 90       	pop	r13
+ 55a:	cf 90       	pop	r12
+ 55c:	08 95       	ret
 
-000005a0 <_ZN12CameraAL422B5beginEv>:
- 5a0:	0f 93       	push	r16
- 5a2:	1f 93       	push	r17
- 5a4:	8c 01       	movw	r16, r24
- 5a6:	80 e0       	ldi	r24, 0x00	; 0
- 5a8:	90 e0       	ldi	r25, 0x00	; 0
- 5aa:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5ae:	f8 01       	movw	r30, r16
- 5b0:	84 81       	ldd	r24, Z+4	; 0x04
- 5b2:	60 e0       	ldi	r22, 0x00	; 0
- 5b4:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5b8:	f8 01       	movw	r30, r16
- 5ba:	85 81       	ldd	r24, Z+5	; 0x05
- 5bc:	61 e0       	ldi	r22, 0x01	; 1
- 5be:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5c2:	f8 01       	movw	r30, r16
- 5c4:	86 81       	ldd	r24, Z+6	; 0x06
- 5c6:	61 e0       	ldi	r22, 0x01	; 1
- 5c8:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5cc:	f8 01       	movw	r30, r16
- 5ce:	87 81       	ldd	r24, Z+7	; 0x07
- 5d0:	61 e0       	ldi	r22, 0x01	; 1
- 5d2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5d6:	c8 01       	movw	r24, r16
- 5d8:	62 e1       	ldi	r22, 0x12	; 18
- 5da:	40 e8       	ldi	r20, 0x80	; 128
- 5dc:	2f ef       	ldi	r18, 0xFF	; 255
- 5de:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 5e2:	f8 01       	movw	r30, r16
- 5e4:	35 81       	ldd	r19, Z+5	; 0x05
- 5e6:	38 30       	cpi	r19, 0x08	; 8
- 5e8:	00 f4       	brcc	.+0      	; 0x5ea <_ZN12CameraAL422B5beginEv+0x4a>
- 5ea:	2b b1       	in	r18, 0x0b	; 11
- 5ec:	81 e0       	ldi	r24, 0x01	; 1
- 5ee:	90 e0       	ldi	r25, 0x00	; 0
- 5f0:	00 c0       	rjmp	.+0      	; 0x5f2 <_ZN12CameraAL422B5beginEv+0x52>
- 5f2:	88 0f       	add	r24, r24
- 5f4:	99 1f       	adc	r25, r25
- 5f6:	3a 95       	dec	r19
- 5f8:	02 f4       	brpl	.+0      	; 0x5fa <_ZN12CameraAL422B5beginEv+0x5a>
- 5fa:	28 2b       	or	r18, r24
- 5fc:	2b b9       	out	0x0b, r18	; 11
- 5fe:	00 c0       	rjmp	.+0      	; 0x600 <_ZN12CameraAL422B5beginEv+0x60>
- 600:	43 2f       	mov	r20, r19
- 602:	50 e0       	ldi	r21, 0x00	; 0
- 604:	3e 30       	cpi	r19, 0x0E	; 14
- 606:	00 f0       	brcs	.+0      	; 0x608 <_ZN12CameraAL422B5beginEv+0x68>
- 608:	28 b1       	in	r18, 0x08	; 8
- 60a:	4e 50       	subi	r20, 0x0E	; 14
- 60c:	50 40       	sbci	r21, 0x00	; 0
- 60e:	81 e0       	ldi	r24, 0x01	; 1
- 610:	90 e0       	ldi	r25, 0x00	; 0
- 612:	00 c0       	rjmp	.+0      	; 0x614 <_ZN12CameraAL422B5beginEv+0x74>
- 614:	88 0f       	add	r24, r24
- 616:	99 1f       	adc	r25, r25
- 618:	4a 95       	dec	r20
- 61a:	02 f4       	brpl	.+0      	; 0x61c <_ZN12CameraAL422B5beginEv+0x7c>
- 61c:	28 2b       	or	r18, r24
- 61e:	28 b9       	out	0x08, r18	; 8
- 620:	00 c0       	rjmp	.+0      	; 0x622 <_ZN12CameraAL422B5beginEv+0x82>
- 622:	25 b1       	in	r18, 0x05	; 5
- 624:	48 50       	subi	r20, 0x08	; 8
- 626:	50 40       	sbci	r21, 0x00	; 0
- 628:	81 e0       	ldi	r24, 0x01	; 1
- 62a:	90 e0       	ldi	r25, 0x00	; 0
- 62c:	00 c0       	rjmp	.+0      	; 0x62e <_ZN12CameraAL422B5beginEv+0x8e>
- 62e:	88 0f       	add	r24, r24
- 630:	99 1f       	adc	r25, r25
- 632:	4a 95       	dec	r20
- 634:	02 f4       	brpl	.+0      	; 0x636 <_ZN12CameraAL422B5beginEv+0x96>
- 636:	28 2b       	or	r18, r24
- 638:	25 b9       	out	0x05, r18	; 5
- 63a:	84 e6       	ldi	r24, 0x64	; 100
- 63c:	90 e0       	ldi	r25, 0x00	; 0
- 63e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
- 642:	1f 91       	pop	r17
- 644:	0f 91       	pop	r16
- 646:	08 95       	ret
+0000055e <_ZN12CameraAL422B5beginEv>:
+ 55e:	0f 93       	push	r16
+ 560:	1f 93       	push	r17
+ 562:	8c 01       	movw	r16, r24
+ 564:	80 e0       	ldi	r24, 0x00	; 0
+ 566:	90 e0       	ldi	r25, 0x00	; 0
+ 568:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 56c:	f8 01       	movw	r30, r16
+ 56e:	84 81       	ldd	r24, Z+4	; 0x04
+ 570:	60 e0       	ldi	r22, 0x00	; 0
+ 572:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 576:	f8 01       	movw	r30, r16
+ 578:	85 81       	ldd	r24, Z+5	; 0x05
+ 57a:	61 e0       	ldi	r22, 0x01	; 1
+ 57c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 580:	f8 01       	movw	r30, r16
+ 582:	86 81       	ldd	r24, Z+6	; 0x06
+ 584:	61 e0       	ldi	r22, 0x01	; 1
+ 586:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 58a:	f8 01       	movw	r30, r16
+ 58c:	87 81       	ldd	r24, Z+7	; 0x07
+ 58e:	61 e0       	ldi	r22, 0x01	; 1
+ 590:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 594:	c8 01       	movw	r24, r16
+ 596:	62 e1       	ldi	r22, 0x12	; 18
+ 598:	40 e8       	ldi	r20, 0x80	; 128
+ 59a:	2f ef       	ldi	r18, 0xFF	; 255
+ 59c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 5a0:	f8 01       	movw	r30, r16
+ 5a2:	35 81       	ldd	r19, Z+5	; 0x05
+ 5a4:	38 30       	cpi	r19, 0x08	; 8
+ 5a6:	00 f4       	brcc	.+0      	; 0x5a8 <_ZN12CameraAL422B5beginEv+0x4a>
+ 5a8:	2b b1       	in	r18, 0x0b	; 11
+ 5aa:	81 e0       	ldi	r24, 0x01	; 1
+ 5ac:	90 e0       	ldi	r25, 0x00	; 0
+ 5ae:	00 c0       	rjmp	.+0      	; 0x5b0 <_ZN12CameraAL422B5beginEv+0x52>
+ 5b0:	88 0f       	add	r24, r24
+ 5b2:	99 1f       	adc	r25, r25
+ 5b4:	3a 95       	dec	r19
+ 5b6:	02 f4       	brpl	.+0      	; 0x5b8 <_ZN12CameraAL422B5beginEv+0x5a>
+ 5b8:	28 2b       	or	r18, r24
+ 5ba:	2b b9       	out	0x0b, r18	; 11
+ 5bc:	00 c0       	rjmp	.+0      	; 0x5be <_ZN12CameraAL422B5beginEv+0x60>
+ 5be:	43 2f       	mov	r20, r19
+ 5c0:	50 e0       	ldi	r21, 0x00	; 0
+ 5c2:	3e 30       	cpi	r19, 0x0E	; 14
+ 5c4:	00 f0       	brcs	.+0      	; 0x5c6 <_ZN12CameraAL422B5beginEv+0x68>
+ 5c6:	28 b1       	in	r18, 0x08	; 8
+ 5c8:	4e 50       	subi	r20, 0x0E	; 14
+ 5ca:	50 40       	sbci	r21, 0x00	; 0
+ 5cc:	81 e0       	ldi	r24, 0x01	; 1
+ 5ce:	90 e0       	ldi	r25, 0x00	; 0
+ 5d0:	00 c0       	rjmp	.+0      	; 0x5d2 <_ZN12CameraAL422B5beginEv+0x74>
+ 5d2:	88 0f       	add	r24, r24
+ 5d4:	99 1f       	adc	r25, r25
+ 5d6:	4a 95       	dec	r20
+ 5d8:	02 f4       	brpl	.+0      	; 0x5da <_ZN12CameraAL422B5beginEv+0x7c>
+ 5da:	28 2b       	or	r18, r24
+ 5dc:	28 b9       	out	0x08, r18	; 8
+ 5de:	00 c0       	rjmp	.+0      	; 0x5e0 <_ZN12CameraAL422B5beginEv+0x82>
+ 5e0:	25 b1       	in	r18, 0x05	; 5
+ 5e2:	48 50       	subi	r20, 0x08	; 8
+ 5e4:	50 40       	sbci	r21, 0x00	; 0
+ 5e6:	81 e0       	ldi	r24, 0x01	; 1
+ 5e8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ea:	00 c0       	rjmp	.+0      	; 0x5ec <_ZN12CameraAL422B5beginEv+0x8e>
+ 5ec:	88 0f       	add	r24, r24
+ 5ee:	99 1f       	adc	r25, r25
+ 5f0:	4a 95       	dec	r20
+ 5f2:	02 f4       	brpl	.+0      	; 0x5f4 <_ZN12CameraAL422B5beginEv+0x96>
+ 5f4:	28 2b       	or	r18, r24
+ 5f6:	25 b9       	out	0x05, r18	; 5
+ 5f8:	84 e6       	ldi	r24, 0x64	; 100
+ 5fa:	90 e0       	ldi	r25, 0x00	; 0
+ 5fc:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraAL422BC2EPFhvEhhhh>
+ 600:	1f 91       	pop	r17
+ 602:	0f 91       	pop	r16
+ 604:	08 95       	ret
 
 Camera.o:     file format elf32-avr
 

@@ -12,10 +12,10 @@
 #define __ARDUINO_DRIVER_CAMERA_AL422B_H__ 1
 
 // Fast IO
-#define digitalWriteFast(pin, state) ((tate) == LOW) ? digitalWriteLowFast((pin)) : digitalWriteHighFast((pin))
-#define digitalWriteLowFast(pin) ((pin) < 8) ? PORTD &= ~(1 << (pin)) : ((pin) > 13) ? PORTC &= ~(1 << ((pin) - 14)) : PORTB &= ~(1 << ((pin) - 8))
-#define digitalWriteHighFast(pin) ((pin) < 8) ? PORTD |= (1 << (pin)) : ((pin) > 13) ? PORTC |= (1 << ((pin) - 14)) : PORTB |= (1 << ((pin) - 8))
-#define digitalReadFast(pin) ((pin) < 8) ? (PORTD & (1 << (pin))) : ((pin) > 13) ? (PORTC & (1 << ((pin) - 14))) : (PORTB & (1 << ((pin) - 8)))
+#define digitalWriteFast(pin, state)    ((tate) == LOW) ? digitalWriteLowFast((pin)) : digitalWriteHighFast((pin))
+#define digitalWriteLowFast(pin)        ((pin) < 8) ? PORTD &= ~(1 << (pin)) : ((pin) > 13) ? PORTC &= ~(1 << ((pin) - 14)) : PORTB &= ~(1 << ((pin) - 8))
+#define digitalWriteHighFast(pin)       ((pin) < 8) ? PORTD |= (1 << (pin)) : ((pin) > 13) ? PORTC |= (1 << ((pin) - 14)) : PORTB |= (1 << ((pin) - 8))
+#define digitalReadFast(pin)            ((pin) < 8) ? (PORTD & (1 << (pin))) : ((pin) > 13) ? (PORTC & (1 << ((pin) - 14))) : (PORTB & (1 << ((pin) - 8)))
 
 #include <OutputStream.h>
 #include <Camera.h>
