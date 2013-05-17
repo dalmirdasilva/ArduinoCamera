@@ -154,34 +154,34 @@ unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
 
 unsigned int CameraVC0706::read(unsigned char *buf, unsigned int size) {
 	unsigned char c = 0;
-	rxBufferPointer = 0;
+	unsigned int rxLength = 0;
 	while (size-- > 0 && (c = serial->read()) != -1) {
-		rxBuffer[rxBufferPointer++] = c;
+	    buf[rxLength++] = c;
 	}
 	
 #if VC0760_DEBUG == 1
 	if (c < 0) {
 		Serial.println("Error on read.");
-	} else if (rxBufferPointer == 0) {
+	} else if (rxLength == 0) {
 		Serial.println("No data received on read.");
-	} else if (rxBufferPointer != size) {
+	} else if (rxLength != size) {
 		Serial.print("Read bytes: ");
-		Serial.print(rxBufferPointer);
+		Serial.print(rxLength);
 		Serial.print(" differs from the size to be read: ");
 		Serial.println(size);
 	} else {
 		Serial.print("It matches! ");
-		Serial.print(rxBufferPointer);
+		Serial.print(rxLength);
 		Serial.print(" bytes read when expecting: ");
 		Serial.println(size);
 	}
 #endif
 
-	return rxBufferPointer;
+	return rxLength;
 }
 
 bool CameraVC0706::executeCommand(unsigned char cmd, unsigned char *args,
-		unsigned int argc, unsigned int responseLength) {
+		unsigned char argc, unsigned int responseLength) {
 	if (!sendCommand(cmd, args, argc)) {
 		return false;
 	}
@@ -197,31 +197,32 @@ bool CameraVC0706::executeCommand(unsigned char cmd, unsigned char *args,
 
 unsigned int CameraVC0706::sendCommand(unsigned char cmd, unsigned char *args,
 		unsigned int argc) {
-	unsigned int length;
-	unsigned char buf[4 + argc];
+	unsigned int sentBytes;
+	unsigned int bufSize = 4 + argc;
+	unsigned char buf[bufSize];
 	buf[0] = VC0760_PROTOCOL_SIGN_TX;
 	buf[1] = serialNumber;
 	buf[2] = cmd;
-	buf[3] = (unsigned char) (argc & 0xff);
+	buf[3] = argc;
 	memcpy(&buf[4], args, argc);
-	printBuff(buf, sizeof(buf));
-	length = write(buf, sizeof(buf));
+	printBuff(buf, bufSize);
+	sentBytes = write(buf, bufSize);
 
 #if VC0760_DEBUG == 1
-	Serial.print(length);
+	Serial.print(sentBytes);
 	Serial.println(" bytes written.");
 #endif
 
-	if (length != sizeof(buf)) {
+	if (sentBytes != bufSize) {
 
 #if VC0760_DEBUG == 1
 		Serial.print("Cannot write. Returned: ");
-		Serial.println(length);
+		Serial.println(sentBytes);
 #endif
 
 		return 0;
 	}
-	return length;
+	return sentBytes;
 }
 
 bool CameraVC0706::verifyResponse(unsigned char cmd) {
@@ -268,11 +269,11 @@ bool CameraVC0706::reset() {
 
 float CameraVC0706::getVersion() {
 	unsigned int i = 0;
+    float version = 0.0;
 	unsigned char args[] = {};
 	if (!executeCommand(GEN_VERSION, args, sizeof(args), 18)) {
-		return 0.0;
+		return version;
 	}
-	float version = 0.0;
 	while (rxBuffer[i++] != ' ')
 		;
 	version += rxBuffer[i] - '0';

@@ -44,10 +44,10 @@ public:
 	
 	enum ColorControlMode {
 		
-		// Automatically step black-white and colour.
+		// Automatically step black-white and color.
 		AUTO_STEP_BLACK_WHITE = 0,
 		
-		// Manually step color, select colour.
+		// Manually step color, select color.
 		MANUAL_STEP_SELECT_COLOUR = 1,
 		
 		// Manually step color, select black-white.
@@ -89,13 +89,13 @@ public:
 		// Control frame buffer register
 		FBUF_CTRL = 0x36,
 
-		// Motion detect on or off in comunication interface
+		// Motion detect on or off in communication interface
 		COMM_MOTION_CTRL = 0x37,
 
-		// Get motion monitoring status in comunication interface
+		// Get motion monitoring status in communication interface
 		COMM_MOTION_STATUS = 0x38,
 
-		// Motion has been detected by comunication interface
+		// Motion has been detected by communication interface
 		COMM_MOTION_DETECTED = 0x39,
 
 		// Mirror control
@@ -322,8 +322,8 @@ public:
 	 * 
 	 * <pre>
 	 * It needs Mirror value to set with GPIO control.
-	 * 		0:automatically step black-white and colour.
-	 * 		1:manually step color, select colour.
+	 * 		0:automatically step black-white and color.
+	 * 		1:manually step color, select color.
 	 * 		2:manually step color, select black-white.
 	 * </pre>
 	 * 
@@ -346,8 +346,8 @@ public:
      *      1:control color by UART.
      * 
      * Show mode:show current color by UART.
-     *      0:automatically step black-white and colour.
-     *      1:manual step color, select colour.
+     *      0:automatically step black-white and color.
+     *      1:manual step color, select color.
      *      2:manual step color, select black-white.
      * </pre>
      * 
@@ -357,8 +357,8 @@ public:
      * 
      * @return status                   bit0 Control mode (GPIO = 0, UART = 1)
      *                                  bit[1,2] Show mode
-     *                                      00:automatically step black-white and colour.
-     *                                      01:manual step color, select colour.
+     *                                      00:automatically step black-white and color.
+     *                                      01:manual step color, select color.
      *                                      10:manual step color, select black-white.
      */ 
 	unsigned char getColorControlStatus();
@@ -373,7 +373,7 @@ public:
 	/**
 	 * Sets the motion detection.
 	 * 
-	 * Command function :motion detect on or off in comunication interface
+	 * Command function :motion detect on or off in communication interface
 	 * Command format :0x56+serial number+0x37+0x01+control flag(1 byte)
 	 * 
 	 * <pre>
@@ -390,7 +390,7 @@ public:
 	/**
 	 * Gets the motion status.
 	 * 
-	 * Command function :get motion monitoring status in comunication interface.
+	 * Command function :get motion monitoring status in communication interface.
 	 * Command format :0x56+serial number+0x38+0x00
 	 * 
 	 * Return format :
@@ -423,7 +423,7 @@ public:
 	 * It is an active command that system send to control terminal.
 	 * 
 	 * @param timeout			The timeout to wait.
-	 * @param callback			Funtion pointer.	
+	 * @param callback			Function pointer.
 	 */
 	bool pollMotionMonitoring(unsigned int timeout, void (*callback)(void *));
 	
@@ -507,7 +507,7 @@ public:
 	bool setTVOutput(unsigned char onOff);
 
 	/**
-	 * Configures the boud rate.
+	 * Configures the baud rate.
 	 *
 	 * Command function :Set the property of communication interface
 	 * Command format :0x56+Serial number+0x24+Data-length+interface type1byte)+configuration data
@@ -521,7 +521,7 @@ public:
 	 * Return format :
 	 * OK: 0x76+Serial number+0x24+0x00+0x00
 	 * 
-	 * @param baudRate				The boud rate.
+	 * @param baudRate				The baud rate.
 	 */
 	bool setBoudRate(unsigned int baudRate);
 
@@ -533,7 +533,7 @@ public:
 	 * @param argc 					How many bytes the buffer has (the command args size).
 	 * @param responseLength		The expected response length.
 	 */
-	bool executeCommand(unsigned char cmd, unsigned char *args, unsigned int argc,
+	bool executeCommand(unsigned char cmd, unsigned char *args, unsigned char argc,
 			unsigned int responseLength);
 
 private:
@@ -541,7 +541,7 @@ private:
 	/**
 	 * Utility function.
 	 * 
-	 * @param buf				The buffer to be debuged.
+	 * @param buf				The buffer to be debugged.
 	 * @param c					How many bytes will be printed.
 	 */
 	void printBuff(unsigned char *buf, unsigned int c);
@@ -577,7 +577,7 @@ private:
 	 * Protocol sign(1byte)+Serial number(1byte)+Command(1byte)+Status(1byte)+Data-lengths(1byte)+Data(0~16bytes)
 	 * 
 	 * @param cmd				The command to check the response.
-	 * @return 					True if there is a correct response, fatse otherwise.
+	 * @return 					True if there is a correct response, false otherwise.
 	 */
 	bool verifyResponse(unsigned char cmd);
 
