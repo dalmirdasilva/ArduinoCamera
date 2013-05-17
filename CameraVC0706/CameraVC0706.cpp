@@ -1,30 +1,30 @@
 #include "CameraVC0706.h"
 
-CameraVC0706::CameraVC0706(SuftwareSerial *serial) : serial(serial) {
+CameraVC0706::CameraVC0706(SoftwareSerial *serial) : serial(serial) {
 	rxBufferPointer = 0;
 	serialNumber = 0x00;
 	framePointer = 0;
 }
 
-int CameraVC0706::begin(unsigned int baud) {
+bool CameraVC0706::begin(unsigned int baud) {
 	serial->begin(baud);
-	return 1;
+	return true;
 }
 
-int CameraVC0706::close() {
+bool CameraVC0706::close() {
 	serial->end();
-	return 1;
+	return true;
 }
 
-int CameraVC0706::capture() {
+bool CameraVC0706::capture() {
 	return executeBufferControl(STOP_CURRENT_FRAME);
 }
 
-int CameraVC0706::resume() {
+bool CameraVC0706::resume() {
 	return executeBufferControl(RESUME_FRAME);
 }
 
-int CameraVC0706::executeBufferControl(unsigned char control) {
+bool CameraVC0706::executeBufferControl(unsigned char control) {
 	unsigned char args[] = {(unsigned char) (control & 0x03)};
 	return executeCommand(FBUF_CTRL, args, sizeof(args), 5);
 }
@@ -49,7 +49,7 @@ unsigned int CameraVC0706::readFrame(unsigned char *buf, unsigned int frameOffse
 }
 
 unsigned int CameraVC0706::getFrameLength() {
-	unsigned int frameLength;
+	unsigned int frameLength = 0;
 	unsigned char args[] = {0x00};
 	if (!executeCommand(GET_FBUF_LEN, args, sizeof(args), 9)
 			&& rxBuffer[4] == 0x04) {
@@ -112,7 +112,7 @@ bool CameraVC0706::getMotionMonitoringStatus() {
 }
 
 bool CameraVC0706::pollMotionMonitoring(unsigned int timeout, void (*callback)(void *)) {
-	long start, now;
+	long start = 0, now = 0;
 	bool detected = 0;
 	start = millis();
 	do {

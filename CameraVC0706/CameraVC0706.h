@@ -190,27 +190,27 @@ public:
 	 * Public constructor.
 	 *
 	 */
-	CameraVC0706(SuftwareSerial *serial);
+	CameraVC0706(SoftwareSerial *serial);
 
 	/**
 	 * Initializes the camera.
 	 */
-	int begin(unsigned int baud);
+	bool begin(unsigned int baud);
 
 	/**
 	 * Closes the camera.
 	 */
-	int close();
+	bool close();
 
 	/**
 	 * Captures a frame.
 	 */
-	int capture();
+	bool capture();
 
 	/**
 	 * Resumes the camera.
 	 */
-	int resume();
+	bool resume();
 
 	/**
 	 * Gets the frame length.
@@ -497,7 +497,7 @@ public:
 	 *
 	 * @param control               The buffer control.
 	 */
-	int executeBufferControl(unsigned char control);
+	bool executeBufferControl(unsigned char control);
 
 	/**
 	 * Set TV output.
