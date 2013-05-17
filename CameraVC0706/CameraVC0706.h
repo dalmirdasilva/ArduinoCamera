@@ -12,6 +12,7 @@
 #define __RASPBERRY_DRIVER_CAMERA_VC0706_H__ 1
 
 #include <Arduino.h>
+#include <SoftwareSerial.h>
 
 #define VC0760_DEBUG 				1
 #define VC0760_PROTOCOL_SIGN_TX     0x56
@@ -31,6 +32,8 @@ class CameraVC0706 {
 	unsigned int framePointer;
 	
 	unsigned int baudRate;
+
+	SoftwareSerial *serial;
 
 public:
 	
@@ -187,7 +190,7 @@ public:
 	 * Public constructor.
 	 *
 	 */
-	CameraVC0706(SoftwareSerial *serial);
+	CameraVC0706(SuftwareSerial *serial);
 
 	/**
 	 * Initializes the camera.

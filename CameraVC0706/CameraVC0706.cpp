@@ -6,13 +6,14 @@ CameraVC0706::CameraVC0706(SuftwareSerial *serial) : serial(serial) {
 	framePointer = 0;
 }
 
-int CameraVC0706::begin(int baud) {
+int CameraVC0706::begin(unsigned int baud) {
 	serial->begin(baud);
 	return 1;
 }
 
 int CameraVC0706::close() {
-	return serial->close();
+	serial->end();
+	return 1;
 }
 
 int CameraVC0706::capture() {
@@ -31,11 +32,10 @@ int CameraVC0706::executeBufferControl(unsigned char control) {
 unsigned int CameraVC0706::readFrame(unsigned char *buf, unsigned int frameOffset,
 		unsigned int bufferOffset, unsigned int len) {
 	unsigned int bytesRead = 0;
-	unsigned char args[] = {0x00, 0x0a, ((frameOffset >> 24) & 0xff),
-			((frameOffset >> 16) & 0xff), ((frameOffset >> 8) & 0xff),
-			frameOffset & 0xff, ((len >> 24) & 0xff), ((len >> 16) & 0xff),
-			((len >> 8) & 0xff), len & 0xff, (VC0760_CAMERA_DELAY >> 8) & 0xff,
-			VC0760_CAMERA_DELAY & 0xff};
+	unsigned char args[] = {0x00, 0x0a, 
+			0x00, 0x00, ((frameOffset >> 8) & 0xff), frameOffset & 0xff, 
+			0x00, 0x00, ((len >> 8) & 0xff), len & 0xff, 
+			(VC0760_CAMERA_DELAY >> 8) & 0xff, VC0760_CAMERA_DELAY & 0xff};
 
 	if (!executeCommand(READ_FBUF, args, sizeof(args), 5)) {
 		return 0;
@@ -48,17 +48,13 @@ unsigned int CameraVC0706::readFrame(unsigned char *buf, unsigned int frameOffse
 	return bytesRead;
 }
 
-int CameraVC0706::getFrameLength() {
-	int frameLength;
+unsigned int CameraVC0706::getFrameLength() {
+	unsigned int frameLength;
 	unsigned char args[] = {0x00};
 	if (!executeCommand(GET_FBUF_LEN, args, sizeof(args), 9)
 			&& rxBuffer[4] == 0x04) {
 		return 0;
 	}
-	frameLength = rxBuffer[5];
-	frameLength <<= 8;
-	frameLength |= rxBuffer[6];
-	frameLength <<= 8;
 	frameLength |= rxBuffer[7];
 	frameLength <<= 8;
 	frameLength |= rxBuffer[8];
@@ -156,28 +152,32 @@ unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
 	return txLength;
 }
 
-int CameraVC0706::read(unsigned char *buf, int size) {
-	int rxLength = ::read(fd, buf, size);
-
+unsigned int CameraVC0706::read(unsigned char *buf, unsigned int size) {
+	unsigned char c = 0;
+	rxBufferPointer = 0;
+	while (size-- > 0 && (c = serial->read()) != -1) {
+		rxBuffer[rxBufferPointer++] = c;
+	}
+	
 #if VC0760_DEBUG == 1
-	if (rxLength < 0) {
+	if (c < 0) {
 		Serial.println("Error on read.");
-	} else if (rxLength == 0) {
+	} else if (rxBufferPointer == 0) {
 		Serial.println("No data received on read.");
-	} else if (rxLength != size) {
+	} else if (rxBufferPointer != size) {
 		Serial.print("Read bytes: ");
-		Serial.print(rxLength);
+		Serial.print(rxBufferPointer);
 		Serial.print(" differs from the size to be read: ");
 		Serial.println(size);
 	} else {
 		Serial.print("It matches! ");
-		Serial.print(rxLength);
+		Serial.print(rxBufferPointer);
 		Serial.print(" bytes read when expecting: ");
 		Serial.println(size);
 	}
 #endif
 
-	return rxLength;
+	return rxBufferPointer;
 }
 
 bool CameraVC0706::executeCommand(unsigned char cmd, unsigned char *args,
@@ -212,7 +212,7 @@ unsigned int CameraVC0706::sendCommand(unsigned char cmd, unsigned char *args,
 	Serial.println(" bytes written.");
 #endif
 
-	if (length != (int) sizeof(buf)) {
+	if (length != sizeof(buf)) {
 
 #if VC0760_DEBUG == 1
 		Serial.print("Cannot write. Returned: ");
