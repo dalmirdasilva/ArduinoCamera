@@ -36,7 +36,13 @@ class CameraVC0706 {
 	SoftwareSerial *serial;
 
 public:
-	
+
+	enum DownSize {
+        NO_ZOON = 0x00,
+        HALF_SIZE = 0x01,
+        QUARTER_SIZE = 0x02
+	};
+
 	enum ControlBy {
 		GPIO = 0x00,
 		UART = 0x01,
@@ -48,7 +54,7 @@ public:
 		AUTO_STEP_BLACK_WHITE = 0,
 		
 		// Manually step color, select color.
-		MANUAL_STEP_SELECT_COLOUR = 1,
+		MANUAL_STEP_SELECT_COLOR = 1,
 		
 		// Manually step color, select black-white.
 		MANUAL_STEP_SELECT_BLACK_WHITE = 2
@@ -68,7 +74,7 @@ public:
 		// System reset
 		SYSTEM_RESET = 0x26,
 
-		// Read data regisvter
+		// Read data register
 		READ_DATA = 0x30,
 
 		// Write data register
@@ -131,7 +137,7 @@ public:
 		// TV output on or off control
 		TV_OUT_CTRL = 0x44,
 
-		// Add characters to OSD channels
+		// Add characters to OSD channels (unsupported by the VC0706 firmware)
 		OSD_ADD_CHAR = 0x45,
 
 		// Downsize Control
@@ -160,7 +166,7 @@ public:
 	};
 
 	enum OutputResolution {
-		OR_640x480 = 0x00, OR_320x240 = 0x11, OR_160x120 = 0x22
+		RES_640X480 = 0x00, RES_320X240 = 0x11, RES_160X120 = 0x22
 	};
 
 	enum BufferControl {
@@ -211,6 +217,60 @@ public:
 	 * Resumes the camera.
 	 */
 	bool resume();
+
+	/**
+	 * Command function : control downsize attribute
+	 *
+	 * Command format :0x56+serial number+0x53+0x01+control item(1 byte)control item:zooming image proportion
+	 *
+	 * <pre>
+	 * Bit[1:0]:width zooming proportion
+	 *      2b'00:1:1, no zoom
+	 *      2b'01:1:2, the proportion is 1/2.
+	 *      2b'10:1:4, the proportion is 1/4.
+	 *      2b'11:reservation
+	 *
+	 * Bit[3:2]:height zooming proportion
+	 *      2b'00:1:1, no zoom
+	 *      2b'01:1:2, the proportion is 1/2.
+	 *      2b'10:1:4, the proportion is 1/4.
+	 *      2b'11:reservation
+	 * </pre>
+	 *
+	 * Notice:
+	 *
+	 * 1. The image width must be the multiple of 16 in FBUF, image height is the multiple of 8, so the
+	 * configuration information could satisfy the condition.
+	 * 2. The zooming proportion of image height is not more than the zooming proportion of width.
+	 * Return format : 0x76+serial number+0x53+0x00+0x00
+	 *
+	 * @param widthDownSize                 The width downsize.
+	 * @param heightDownSize                The height downsize.
+	 */
+    bool setDownSize(unsigned char widthDownSize, unsigned char heightDownSize);
+
+	/**
+	 * Command function : get downsize status
+	 *
+	 * Command format : 0x56+serial number+0x54+0x00 control item:zooming image proportion
+	 *
+	 * <pre>
+	 * Bit[1:0]:width zooming proportion
+	 *      2b'00:1:1, no zoom
+	 *      2b'01:1:2, the proportion is 1/2.
+	 *      2b'10:1:4, the proportion is 1/4.
+	 *      2b'11:reservation
+	 *
+     * Bit[3:2]:height zooming proportion
+     *      2b'00:1:1, no zoom
+     *      2b'01:1:2, the proportion is 1/2.
+     *      2b'10:1:4, the proportion is 1/4.
+     *      2b'11:reservation
+     * </pre>
+     *
+     * Return format : 0x76+serial number+0x54+0x00+0x01+control item(1 byte)
+	 */
+	unsigned char getDownSize();
 
 	/**
 	 * Gets the frame length.

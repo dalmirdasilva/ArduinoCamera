@@ -29,6 +29,7 @@ SIZEDUMMY :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+CameraVC0706 \
 CameraOV7670 \
 CameraAL422B \
 Camera \

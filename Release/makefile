@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include CameraVC0706/subdir.mk
 -include CameraOV7670/subdir.mk
 -include CameraAL422B/subdir.mk
 -include Camera/subdir.mk

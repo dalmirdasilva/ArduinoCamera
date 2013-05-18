@@ -1,5 +1,1358 @@
 In archive libArduinoCamera.a:
 
+CameraVC0706.o:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000a88  00000000  00000000  00000034  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000125  00000000  00000000  00000abc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000be1  2**0
+                  ALLOC
+Disassembly of section .text:
+
+00000000 <_ZN12CameraVC0706C2EP14SoftwareSerial>:
+   0:	fc 01       	movw	r30, r24
+   2:	77 8b       	std	Z+23, r23	; 0x17
+   4:	66 8b       	std	Z+22, r22	; 0x16
+   6:	10 8a       	std	Z+16, r1	; 0x10
+   8:	17 86       	std	Z+15, r1	; 0x0f
+   a:	11 8a       	std	Z+17, r1	; 0x11
+   c:	13 8a       	std	Z+19, r1	; 0x13
+   e:	12 8a       	std	Z+18, r1	; 0x12
+  10:	08 95       	ret
+
+00000012 <_ZN12CameraVC0706C1EP14SoftwareSerial>:
+  12:	fc 01       	movw	r30, r24
+  14:	77 8b       	std	Z+23, r23	; 0x17
+  16:	66 8b       	std	Z+22, r22	; 0x16
+  18:	10 8a       	std	Z+16, r1	; 0x10
+  1a:	17 86       	std	Z+15, r1	; 0x0f
+  1c:	11 8a       	std	Z+17, r1	; 0x11
+  1e:	13 8a       	std	Z+19, r1	; 0x13
+  20:	12 8a       	std	Z+18, r1	; 0x12
+  22:	08 95       	ret
+
+00000024 <_ZN12CameraVC070614verifyResponseEh>:
+  24:	fc 01       	movw	r30, r24
+  26:	80 81       	ld	r24, Z
+  28:	86 37       	cpi	r24, 0x76	; 118
+  2a:	01 f4       	brne	.+0      	; 0x2c <_ZN12CameraVC070614verifyResponseEh+0x8>
+  2c:	91 81       	ldd	r25, Z+1	; 0x01
+  2e:	81 89       	ldd	r24, Z+17	; 0x11
+  30:	98 17       	cp	r25, r24
+  32:	01 f4       	brne	.+0      	; 0x34 <_ZN12CameraVC070614verifyResponseEh+0x10>
+  34:	82 81       	ldd	r24, Z+2	; 0x02
+  36:	86 17       	cp	r24, r22
+  38:	01 f4       	brne	.+0      	; 0x3a <_ZN12CameraVC070614verifyResponseEh+0x16>
+  3a:	20 e0       	ldi	r18, 0x00	; 0
+  3c:	83 81       	ldd	r24, Z+3	; 0x03
+  3e:	88 23       	and	r24, r24
+  40:	01 f4       	brne	.+0      	; 0x42 <_ZN12CameraVC070614verifyResponseEh+0x1e>
+  42:	21 e0       	ldi	r18, 0x01	; 1
+  44:	00 c0       	rjmp	.+0      	; 0x46 <_ZN12CameraVC070614verifyResponseEh+0x22>
+  46:	20 e0       	ldi	r18, 0x00	; 0
+  48:	82 2f       	mov	r24, r18
+  4a:	08 95       	ret
+
+0000004c <_ZN12CameraVC07069printBuffEPhj>:
+  4c:	ef 92       	push	r14
+  4e:	ff 92       	push	r15
+  50:	0f 93       	push	r16
+  52:	1f 93       	push	r17
+  54:	cf 93       	push	r28
+  56:	df 93       	push	r29
+  58:	7b 01       	movw	r14, r22
+  5a:	8a 01       	movw	r16, r20
+  5c:	80 e0       	ldi	r24, 0x00	; 0
+  5e:	90 e0       	ldi	r25, 0x00	; 0
+  60:	60 e0       	ldi	r22, 0x00	; 0
+  62:	70 e0       	ldi	r23, 0x00	; 0
+  64:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+  68:	c0 e0       	ldi	r28, 0x00	; 0
+  6a:	d0 e0       	ldi	r29, 0x00	; 0
+  6c:	00 c0       	rjmp	.+0      	; 0x6e <_ZN12CameraVC07069printBuffEPhj+0x22>
+  6e:	80 e0       	ldi	r24, 0x00	; 0
+  70:	90 e0       	ldi	r25, 0x00	; 0
+  72:	be 01       	movw	r22, r28
+  74:	4a e0       	ldi	r20, 0x0A	; 10
+  76:	50 e0       	ldi	r21, 0x00	; 0
+  78:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+  7c:	80 e0       	ldi	r24, 0x00	; 0
+  7e:	90 e0       	ldi	r25, 0x00	; 0
+  80:	60 e0       	ldi	r22, 0x00	; 0
+  82:	70 e0       	ldi	r23, 0x00	; 0
+  84:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+  88:	f7 01       	movw	r30, r14
+  8a:	ec 0f       	add	r30, r28
+  8c:	fd 1f       	adc	r31, r29
+  8e:	80 e0       	ldi	r24, 0x00	; 0
+  90:	90 e0       	ldi	r25, 0x00	; 0
+  92:	60 81       	ld	r22, Z
+  94:	4a e0       	ldi	r20, 0x0A	; 10
+  96:	50 e0       	ldi	r21, 0x00	; 0
+  98:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+  9c:	21 96       	adiw	r28, 0x01	; 1
+  9e:	c0 17       	cp	r28, r16
+  a0:	d1 07       	cpc	r29, r17
+  a2:	00 f0       	brcs	.+0      	; 0xa4 <_ZN12CameraVC07069printBuffEPhj+0x58>
+  a4:	df 91       	pop	r29
+  a6:	cf 91       	pop	r28
+  a8:	1f 91       	pop	r17
+  aa:	0f 91       	pop	r16
+  ac:	ff 90       	pop	r15
+  ae:	ef 90       	pop	r14
+  b0:	08 95       	ret
+
+000000b2 <_ZN12CameraVC07064readEPhj>:
+  b2:	af 92       	push	r10
+  b4:	bf 92       	push	r11
+  b6:	cf 92       	push	r12
+  b8:	df 92       	push	r13
+  ba:	ef 92       	push	r14
+  bc:	ff 92       	push	r15
+  be:	0f 93       	push	r16
+  c0:	1f 93       	push	r17
+  c2:	cf 93       	push	r28
+  c4:	df 93       	push	r29
+  c6:	6c 01       	movw	r12, r24
+  c8:	5b 01       	movw	r10, r22
+  ca:	7a 01       	movw	r14, r20
+  cc:	8a 01       	movw	r16, r20
+  ce:	c0 e0       	ldi	r28, 0x00	; 0
+  d0:	d0 e0       	ldi	r29, 0x00	; 0
+  d2:	01 50       	subi	r16, 0x01	; 1
+  d4:	10 40       	sbci	r17, 0x00	; 0
+  d6:	ec 16       	cp	r14, r28
+  d8:	fd 06       	cpc	r15, r29
+  da:	01 f4       	brne	.+0      	; 0xdc <_ZN12CameraVC07064readEPhj+0x2a>
+  dc:	00 c0       	rjmp	.+0      	; 0xde <_ZN12CameraVC07064readEPhj+0x2c>
+  de:	d6 01       	movw	r26, r12
+  e0:	56 96       	adiw	r26, 0x16	; 22
+  e2:	ed 91       	ld	r30, X+
+  e4:	fc 91       	ld	r31, X
+  e6:	57 97       	sbiw	r26, 0x17	; 23
+  e8:	a0 81       	ld	r26, Z
+  ea:	b1 81       	ldd	r27, Z+1	; 0x01
+  ec:	14 96       	adiw	r26, 0x04	; 4
+  ee:	2d 91       	ld	r18, X+
+  f0:	3c 91       	ld	r19, X
+  f2:	15 97       	sbiw	r26, 0x05	; 5
+  f4:	cf 01       	movw	r24, r30
+  f6:	f9 01       	movw	r30, r18
+  f8:	09 95       	icall
+  fa:	89 2b       	or	r24, r25
+  fc:	01 f4       	brne	.+0      	; 0xfe <_ZN12CameraVC07064readEPhj+0x4c>
+  fe:	00 c0       	rjmp	.+0      	; 0x100 <_ZN12CameraVC07064readEPhj+0x4e>
+ 100:	f6 01       	movw	r30, r12
+ 102:	a6 89       	ldd	r26, Z+22	; 0x16
+ 104:	b7 89       	ldd	r27, Z+23	; 0x17
+ 106:	ed 91       	ld	r30, X+
+ 108:	fc 91       	ld	r31, X
+ 10a:	11 97       	sbiw	r26, 0x01	; 1
+ 10c:	06 80       	ldd	r0, Z+6	; 0x06
+ 10e:	f7 81       	ldd	r31, Z+7	; 0x07
+ 110:	e0 2d       	mov	r30, r0
+ 112:	cd 01       	movw	r24, r26
+ 114:	09 95       	icall
+ 116:	f5 01       	movw	r30, r10
+ 118:	ec 0f       	add	r30, r28
+ 11a:	fd 1f       	adc	r31, r29
+ 11c:	80 83       	st	Z, r24
+ 11e:	21 96       	adiw	r28, 0x01	; 1
+ 120:	00 c0       	rjmp	.+0      	; 0x122 <_ZN12CameraVC07064readEPhj+0x70>
+ 122:	80 e0       	ldi	r24, 0x00	; 0
+ 124:	90 e0       	ldi	r25, 0x00	; 0
+ 126:	60 e0       	ldi	r22, 0x00	; 0
+ 128:	70 e0       	ldi	r23, 0x00	; 0
+ 12a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 12e:	00 c0       	rjmp	.+0      	; 0x130 <_ZN12CameraVC07064readEPhj+0x7e>
+ 130:	c0 17       	cp	r28, r16
+ 132:	d1 07       	cpc	r29, r17
+ 134:	01 f0       	breq	.+0      	; 0x136 <_ZN12CameraVC07064readEPhj+0x84>
+ 136:	80 e0       	ldi	r24, 0x00	; 0
+ 138:	90 e0       	ldi	r25, 0x00	; 0
+ 13a:	60 e0       	ldi	r22, 0x00	; 0
+ 13c:	70 e0       	ldi	r23, 0x00	; 0
+ 13e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 142:	80 e0       	ldi	r24, 0x00	; 0
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	be 01       	movw	r22, r28
+ 148:	4a e0       	ldi	r20, 0x0A	; 10
+ 14a:	50 e0       	ldi	r21, 0x00	; 0
+ 14c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 150:	80 e0       	ldi	r24, 0x00	; 0
+ 152:	90 e0       	ldi	r25, 0x00	; 0
+ 154:	60 e0       	ldi	r22, 0x00	; 0
+ 156:	70 e0       	ldi	r23, 0x00	; 0
+ 158:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 15c:	80 e0       	ldi	r24, 0x00	; 0
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	b8 01       	movw	r22, r16
+ 162:	00 c0       	rjmp	.+0      	; 0x164 <_ZN12CameraVC07064readEPhj+0xb2>
+ 164:	80 e0       	ldi	r24, 0x00	; 0
+ 166:	90 e0       	ldi	r25, 0x00	; 0
+ 168:	60 e0       	ldi	r22, 0x00	; 0
+ 16a:	70 e0       	ldi	r23, 0x00	; 0
+ 16c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 170:	80 e0       	ldi	r24, 0x00	; 0
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+ 174:	be 01       	movw	r22, r28
+ 176:	4a e0       	ldi	r20, 0x0A	; 10
+ 178:	50 e0       	ldi	r21, 0x00	; 0
+ 17a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 17e:	80 e0       	ldi	r24, 0x00	; 0
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	60 e0       	ldi	r22, 0x00	; 0
+ 184:	70 e0       	ldi	r23, 0x00	; 0
+ 186:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 18a:	80 e0       	ldi	r24, 0x00	; 0
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+ 18e:	be 01       	movw	r22, r28
+ 190:	4a e0       	ldi	r20, 0x0A	; 10
+ 192:	50 e0       	ldi	r21, 0x00	; 0
+ 194:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 198:	ce 01       	movw	r24, r28
+ 19a:	df 91       	pop	r29
+ 19c:	cf 91       	pop	r28
+ 19e:	1f 91       	pop	r17
+ 1a0:	0f 91       	pop	r16
+ 1a2:	ff 90       	pop	r15
+ 1a4:	ef 90       	pop	r14
+ 1a6:	df 90       	pop	r13
+ 1a8:	cf 90       	pop	r12
+ 1aa:	bf 90       	pop	r11
+ 1ac:	af 90       	pop	r10
+ 1ae:	08 95       	ret
+ 1b0:	20 97       	sbiw	r28, 0x00	; 0
+ 1b2:	01 f0       	breq	.+0      	; 0x1b4 <_ZN12CameraVC07064readEPhj+0x102>
+ 1b4:	00 c0       	rjmp	.+0      	; 0x1b6 <_ZN12CameraVC07064readEPhj+0x104>
+ 1b6:	00 c0       	rjmp	.+0      	; 0x1b8 <_ZN12CameraVC070612readResponseEj>
+
+000001b8 <_ZN12CameraVC070612readResponseEj>:
+ 1b8:	0f 93       	push	r16
+ 1ba:	1f 93       	push	r17
+ 1bc:	8c 01       	movw	r16, r24
+ 1be:	ab 01       	movw	r20, r22
+ 1c0:	b8 01       	movw	r22, r16
+ 1c2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 1c6:	ac 01       	movw	r20, r24
+ 1c8:	f8 01       	movw	r30, r16
+ 1ca:	90 8b       	std	Z+16, r25	; 0x10
+ 1cc:	87 87       	std	Z+15, r24	; 0x0f
+ 1ce:	c8 01       	movw	r24, r16
+ 1d0:	b8 01       	movw	r22, r16
+ 1d2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 1d6:	f8 01       	movw	r30, r16
+ 1d8:	87 85       	ldd	r24, Z+15	; 0x0f
+ 1da:	90 89       	ldd	r25, Z+16	; 0x10
+ 1dc:	1f 91       	pop	r17
+ 1de:	0f 91       	pop	r16
+ 1e0:	08 95       	ret
+
+000001e2 <_ZN12CameraVC07065writeEPhj>:
+ 1e2:	cf 92       	push	r12
+ 1e4:	df 92       	push	r13
+ 1e6:	ef 92       	push	r14
+ 1e8:	ff 92       	push	r15
+ 1ea:	0f 93       	push	r16
+ 1ec:	1f 93       	push	r17
+ 1ee:	cf 93       	push	r28
+ 1f0:	df 93       	push	r29
+ 1f2:	8c 01       	movw	r16, r24
+ 1f4:	7b 01       	movw	r14, r22
+ 1f6:	6a 01       	movw	r12, r20
+ 1f8:	80 e0       	ldi	r24, 0x00	; 0
+ 1fa:	90 e0       	ldi	r25, 0x00	; 0
+ 1fc:	60 e0       	ldi	r22, 0x00	; 0
+ 1fe:	70 e0       	ldi	r23, 0x00	; 0
+ 200:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 204:	80 e0       	ldi	r24, 0x00	; 0
+ 206:	90 e0       	ldi	r25, 0x00	; 0
+ 208:	b6 01       	movw	r22, r12
+ 20a:	4a e0       	ldi	r20, 0x0A	; 10
+ 20c:	50 e0       	ldi	r21, 0x00	; 0
+ 20e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 212:	80 e0       	ldi	r24, 0x00	; 0
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	60 e0       	ldi	r22, 0x00	; 0
+ 218:	70 e0       	ldi	r23, 0x00	; 0
+ 21a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 21e:	d8 01       	movw	r26, r16
+ 220:	56 96       	adiw	r26, 0x16	; 22
+ 222:	ed 91       	ld	r30, X+
+ 224:	fc 91       	ld	r31, X
+ 226:	57 97       	sbiw	r26, 0x17	; 23
+ 228:	a0 81       	ld	r26, Z
+ 22a:	b1 81       	ldd	r27, Z+1	; 0x01
+ 22c:	12 96       	adiw	r26, 0x02	; 2
+ 22e:	2d 91       	ld	r18, X+
+ 230:	3c 91       	ld	r19, X
+ 232:	13 97       	sbiw	r26, 0x03	; 3
+ 234:	cf 01       	movw	r24, r30
+ 236:	b7 01       	movw	r22, r14
+ 238:	a6 01       	movw	r20, r12
+ 23a:	f9 01       	movw	r30, r18
+ 23c:	09 95       	icall
+ 23e:	ec 01       	movw	r28, r24
+ 240:	8c 15       	cp	r24, r12
+ 242:	9d 05       	cpc	r25, r13
+ 244:	01 f0       	breq	.+0      	; 0x246 <_ZN12CameraVC07065writeEPhj+0x64>
+ 246:	80 e0       	ldi	r24, 0x00	; 0
+ 248:	90 e0       	ldi	r25, 0x00	; 0
+ 24a:	60 e0       	ldi	r22, 0x00	; 0
+ 24c:	70 e0       	ldi	r23, 0x00	; 0
+ 24e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 252:	80 e0       	ldi	r24, 0x00	; 0
+ 254:	90 e0       	ldi	r25, 0x00	; 0
+ 256:	be 01       	movw	r22, r28
+ 258:	4a e0       	ldi	r20, 0x0A	; 10
+ 25a:	50 e0       	ldi	r21, 0x00	; 0
+ 25c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 260:	80 e0       	ldi	r24, 0x00	; 0
+ 262:	90 e0       	ldi	r25, 0x00	; 0
+ 264:	60 e0       	ldi	r22, 0x00	; 0
+ 266:	70 e0       	ldi	r23, 0x00	; 0
+ 268:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 26c:	80 e0       	ldi	r24, 0x00	; 0
+ 26e:	90 e0       	ldi	r25, 0x00	; 0
+ 270:	b6 01       	movw	r22, r12
+ 272:	4a e0       	ldi	r20, 0x0A	; 10
+ 274:	50 e0       	ldi	r21, 0x00	; 0
+ 276:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 27a:	ce 01       	movw	r24, r28
+ 27c:	df 91       	pop	r29
+ 27e:	cf 91       	pop	r28
+ 280:	1f 91       	pop	r17
+ 282:	0f 91       	pop	r16
+ 284:	ff 90       	pop	r15
+ 286:	ef 90       	pop	r14
+ 288:	df 90       	pop	r13
+ 28a:	cf 90       	pop	r12
+ 28c:	08 95       	ret
+
+0000028e <_ZN12CameraVC070611sendCommandEhPhj>:
+ 28e:	af 92       	push	r10
+ 290:	bf 92       	push	r11
+ 292:	cf 92       	push	r12
+ 294:	df 92       	push	r13
+ 296:	ef 92       	push	r14
+ 298:	ff 92       	push	r15
+ 29a:	0f 93       	push	r16
+ 29c:	1f 93       	push	r17
+ 29e:	df 93       	push	r29
+ 2a0:	cf 93       	push	r28
+ 2a2:	cd b7       	in	r28, 0x3d	; 61
+ 2a4:	de b7       	in	r29, 0x3e	; 62
+ 2a6:	7c 01       	movw	r14, r24
+ 2a8:	ad b6       	in	r10, 0x3d	; 61
+ 2aa:	be b6       	in	r11, 0x3e	; 62
+ 2ac:	84 e0       	ldi	r24, 0x04	; 4
+ 2ae:	c8 2e       	mov	r12, r24
+ 2b0:	d1 2c       	mov	r13, r1
+ 2b2:	c2 0e       	add	r12, r18
+ 2b4:	d3 1e       	adc	r13, r19
+ 2b6:	8d b7       	in	r24, 0x3d	; 61
+ 2b8:	9e b7       	in	r25, 0x3e	; 62
+ 2ba:	8c 19       	sub	r24, r12
+ 2bc:	9d 09       	sbc	r25, r13
+ 2be:	0f b6       	in	r0, 0x3f	; 63
+ 2c0:	f8 94       	cli
+ 2c2:	9e bf       	out	0x3e, r25	; 62
+ 2c4:	0f be       	out	0x3f, r0	; 63
+ 2c6:	8d bf       	out	0x3d, r24	; 61
+ 2c8:	0d b7       	in	r16, 0x3d	; 61
+ 2ca:	1e b7       	in	r17, 0x3e	; 62
+ 2cc:	0f 5f       	subi	r16, 0xFF	; 255
+ 2ce:	1f 4f       	sbci	r17, 0xFF	; 255
+ 2d0:	86 e5       	ldi	r24, 0x56	; 86
+ 2d2:	ed b7       	in	r30, 0x3d	; 61
+ 2d4:	fe b7       	in	r31, 0x3e	; 62
+ 2d6:	81 83       	std	Z+1, r24	; 0x01
+ 2d8:	f7 01       	movw	r30, r14
+ 2da:	81 89       	ldd	r24, Z+17	; 0x11
+ 2dc:	f8 01       	movw	r30, r16
+ 2de:	81 83       	std	Z+1, r24	; 0x01
+ 2e0:	62 83       	std	Z+2, r22	; 0x02
+ 2e2:	23 83       	std	Z+3, r18	; 0x03
+ 2e4:	6d b7       	in	r22, 0x3d	; 61
+ 2e6:	7e b7       	in	r23, 0x3e	; 62
+ 2e8:	6b 5f       	subi	r22, 0xFB	; 251
+ 2ea:	7f 4f       	sbci	r23, 0xFF	; 255
+ 2ec:	cb 01       	movw	r24, r22
+ 2ee:	ba 01       	movw	r22, r20
+ 2f0:	a9 01       	movw	r20, r18
+ 2f2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 2f6:	c7 01       	movw	r24, r14
+ 2f8:	b8 01       	movw	r22, r16
+ 2fa:	a6 01       	movw	r20, r12
+ 2fc:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 300:	c7 01       	movw	r24, r14
+ 302:	b8 01       	movw	r22, r16
+ 304:	a6 01       	movw	r20, r12
+ 306:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 30a:	8c 01       	movw	r16, r24
+ 30c:	80 e0       	ldi	r24, 0x00	; 0
+ 30e:	90 e0       	ldi	r25, 0x00	; 0
+ 310:	b8 01       	movw	r22, r16
+ 312:	4a e0       	ldi	r20, 0x0A	; 10
+ 314:	50 e0       	ldi	r21, 0x00	; 0
+ 316:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 31a:	80 e0       	ldi	r24, 0x00	; 0
+ 31c:	90 e0       	ldi	r25, 0x00	; 0
+ 31e:	60 e0       	ldi	r22, 0x00	; 0
+ 320:	70 e0       	ldi	r23, 0x00	; 0
+ 322:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 326:	0c 15       	cp	r16, r12
+ 328:	1d 05       	cpc	r17, r13
+ 32a:	01 f0       	breq	.+0      	; 0x32c <_ZN12CameraVC070611sendCommandEhPhj+0x9e>
+ 32c:	80 e0       	ldi	r24, 0x00	; 0
+ 32e:	90 e0       	ldi	r25, 0x00	; 0
+ 330:	60 e0       	ldi	r22, 0x00	; 0
+ 332:	70 e0       	ldi	r23, 0x00	; 0
+ 334:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 338:	80 e0       	ldi	r24, 0x00	; 0
+ 33a:	90 e0       	ldi	r25, 0x00	; 0
+ 33c:	b6 01       	movw	r22, r12
+ 33e:	4a e0       	ldi	r20, 0x0A	; 10
+ 340:	50 e0       	ldi	r21, 0x00	; 0
+ 342:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 346:	00 e0       	ldi	r16, 0x00	; 0
+ 348:	10 e0       	ldi	r17, 0x00	; 0
+ 34a:	c8 01       	movw	r24, r16
+ 34c:	0f b6       	in	r0, 0x3f	; 63
+ 34e:	f8 94       	cli
+ 350:	be be       	out	0x3e, r11	; 62
+ 352:	0f be       	out	0x3f, r0	; 63
+ 354:	ad be       	out	0x3d, r10	; 61
+ 356:	cf 91       	pop	r28
+ 358:	df 91       	pop	r29
+ 35a:	1f 91       	pop	r17
+ 35c:	0f 91       	pop	r16
+ 35e:	ff 90       	pop	r15
+ 360:	ef 90       	pop	r14
+ 362:	df 90       	pop	r13
+ 364:	cf 90       	pop	r12
+ 366:	bf 90       	pop	r11
+ 368:	af 90       	pop	r10
+ 36a:	08 95       	ret
+
+0000036c <_ZN12CameraVC070614executeCommandEhPhhj>:
+ 36c:	ff 92       	push	r15
+ 36e:	0f 93       	push	r16
+ 370:	1f 93       	push	r17
+ 372:	cf 93       	push	r28
+ 374:	df 93       	push	r29
+ 376:	ec 01       	movw	r28, r24
+ 378:	f6 2e       	mov	r15, r22
+ 37a:	30 e0       	ldi	r19, 0x00	; 0
+ 37c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 380:	89 2b       	or	r24, r25
+ 382:	01 f0       	breq	.+0      	; 0x384 <_ZN12CameraVC070614executeCommandEhPhhj+0x18>
+ 384:	62 e3       	ldi	r22, 0x32	; 50
+ 386:	70 e0       	ldi	r23, 0x00	; 0
+ 388:	80 e0       	ldi	r24, 0x00	; 0
+ 38a:	90 e0       	ldi	r25, 0x00	; 0
+ 38c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 390:	ce 01       	movw	r24, r28
+ 392:	b8 01       	movw	r22, r16
+ 394:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 398:	89 2b       	or	r24, r25
+ 39a:	01 f0       	breq	.+0      	; 0x39c <_ZN12CameraVC070614executeCommandEhPhhj+0x30>
+ 39c:	88 81       	ld	r24, Y
+ 39e:	86 37       	cpi	r24, 0x76	; 118
+ 3a0:	01 f4       	brne	.+0      	; 0x3a2 <_ZN12CameraVC070614executeCommandEhPhhj+0x36>
+ 3a2:	99 81       	ldd	r25, Y+1	; 0x01
+ 3a4:	89 89       	ldd	r24, Y+17	; 0x11
+ 3a6:	98 17       	cp	r25, r24
+ 3a8:	01 f4       	brne	.+0      	; 0x3aa <_ZN12CameraVC070614executeCommandEhPhhj+0x3e>
+ 3aa:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3ac:	8f 15       	cp	r24, r15
+ 3ae:	01 f4       	brne	.+0      	; 0x3b0 <_ZN12CameraVC070614executeCommandEhPhhj+0x44>
+ 3b0:	20 e0       	ldi	r18, 0x00	; 0
+ 3b2:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3b4:	88 23       	and	r24, r24
+ 3b6:	01 f4       	brne	.+0      	; 0x3b8 <_ZN12CameraVC070614executeCommandEhPhhj+0x4c>
+ 3b8:	21 e0       	ldi	r18, 0x01	; 1
+ 3ba:	00 c0       	rjmp	.+0      	; 0x3bc <_ZN12CameraVC070614executeCommandEhPhhj+0x50>
+ 3bc:	20 e0       	ldi	r18, 0x00	; 0
+ 3be:	82 2f       	mov	r24, r18
+ 3c0:	df 91       	pop	r29
+ 3c2:	cf 91       	pop	r28
+ 3c4:	1f 91       	pop	r17
+ 3c6:	0f 91       	pop	r16
+ 3c8:	ff 90       	pop	r15
+ 3ca:	08 95       	ret
+
+000003cc <_ZN12CameraVC070611setBoudRateEj>:
+ 3cc:	0f 93       	push	r16
+ 3ce:	1f 93       	push	r17
+ 3d0:	df 93       	push	r29
+ 3d2:	cf 93       	push	r28
+ 3d4:	00 d0       	rcall	.+0      	; 0x3d6 <_ZN12CameraVC070611setBoudRateEj+0xa>
+ 3d6:	0f 92       	push	r0
+ 3d8:	cd b7       	in	r28, 0x3d	; 61
+ 3da:	de b7       	in	r29, 0x3e	; 62
+ 3dc:	fc 01       	movw	r30, r24
+ 3de:	64 8b       	std	Z+20, r22	; 0x14
+ 3e0:	75 8b       	std	Z+21, r23	; 0x15
+ 3e2:	9e 01       	movw	r18, r28
+ 3e4:	2f 5f       	subi	r18, 0xFF	; 255
+ 3e6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 3e8:	83 e0       	ldi	r24, 0x03	; 3
+ 3ea:	d9 01       	movw	r26, r18
+ 3ec:	1d 92       	st	X+, r1
+ 3ee:	8a 95       	dec	r24
+ 3f0:	01 f4       	brne	.+0      	; 0x3f2 <_ZN12CameraVC070611setBoudRateEj+0x26>
+ 3f2:	81 e0       	ldi	r24, 0x01	; 1
+ 3f4:	89 83       	std	Y+1, r24	; 0x01
+ 3f6:	7a 83       	std	Y+2, r23	; 0x02
+ 3f8:	6b 83       	std	Y+3, r22	; 0x03
+ 3fa:	cf 01       	movw	r24, r30
+ 3fc:	64 e2       	ldi	r22, 0x24	; 36
+ 3fe:	a9 01       	movw	r20, r18
+ 400:	23 e0       	ldi	r18, 0x03	; 3
+ 402:	05 e0       	ldi	r16, 0x05	; 5
+ 404:	10 e0       	ldi	r17, 0x00	; 0
+ 406:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 40a:	0f 90       	pop	r0
+ 40c:	0f 90       	pop	r0
+ 40e:	0f 90       	pop	r0
+ 410:	cf 91       	pop	r28
+ 412:	df 91       	pop	r29
+ 414:	1f 91       	pop	r17
+ 416:	0f 91       	pop	r16
+ 418:	08 95       	ret
+
+0000041a <_ZN12CameraVC070611setTVOutputEh>:
+ 41a:	0f 93       	push	r16
+ 41c:	1f 93       	push	r17
+ 41e:	df 93       	push	r29
+ 420:	cf 93       	push	r28
+ 422:	0f 92       	push	r0
+ 424:	cd b7       	in	r28, 0x3d	; 61
+ 426:	de b7       	in	r29, 0x3e	; 62
+ 428:	61 70       	andi	r22, 0x01	; 1
+ 42a:	69 83       	std	Y+1, r22	; 0x01
+ 42c:	64 e4       	ldi	r22, 0x44	; 68
+ 42e:	ae 01       	movw	r20, r28
+ 430:	4f 5f       	subi	r20, 0xFF	; 255
+ 432:	5f 4f       	sbci	r21, 0xFF	; 255
+ 434:	21 e0       	ldi	r18, 0x01	; 1
+ 436:	05 e0       	ldi	r16, 0x05	; 5
+ 438:	10 e0       	ldi	r17, 0x00	; 0
+ 43a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 43e:	0f 90       	pop	r0
+ 440:	cf 91       	pop	r28
+ 442:	df 91       	pop	r29
+ 444:	1f 91       	pop	r17
+ 446:	0f 91       	pop	r16
+ 448:	08 95       	ret
+
+0000044a <_ZN12CameraVC070614getCompressionEv>:
+ 44a:	ef 92       	push	r14
+ 44c:	ff 92       	push	r15
+ 44e:	0f 93       	push	r16
+ 450:	1f 93       	push	r17
+ 452:	df 93       	push	r29
+ 454:	cf 93       	push	r28
+ 456:	00 d0       	rcall	.+0      	; 0x458 <_ZN12CameraVC070614getCompressionEv+0xe>
+ 458:	00 d0       	rcall	.+0      	; 0x45a <_ZN12CameraVC070614getCompressionEv+0x10>
+ 45a:	cd b7       	in	r28, 0x3d	; 61
+ 45c:	de b7       	in	r29, 0x3e	; 62
+ 45e:	7c 01       	movw	r14, r24
+ 460:	81 e0       	ldi	r24, 0x01	; 1
+ 462:	89 83       	std	Y+1, r24	; 0x01
+ 464:	8a 83       	std	Y+2, r24	; 0x02
+ 466:	82 e1       	ldi	r24, 0x12	; 18
+ 468:	8b 83       	std	Y+3, r24	; 0x03
+ 46a:	84 e0       	ldi	r24, 0x04	; 4
+ 46c:	8c 83       	std	Y+4, r24	; 0x04
+ 46e:	c7 01       	movw	r24, r14
+ 470:	60 e3       	ldi	r22, 0x30	; 48
+ 472:	ae 01       	movw	r20, r28
+ 474:	4f 5f       	subi	r20, 0xFF	; 255
+ 476:	5f 4f       	sbci	r21, 0xFF	; 255
+ 478:	24 e0       	ldi	r18, 0x04	; 4
+ 47a:	06 e0       	ldi	r16, 0x06	; 6
+ 47c:	10 e0       	ldi	r17, 0x00	; 0
+ 47e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 482:	88 23       	and	r24, r24
+ 484:	01 f0       	breq	.+0      	; 0x486 <_ZN12CameraVC070614getCompressionEv+0x3c>
+ 486:	f7 01       	movw	r30, r14
+ 488:	85 81       	ldd	r24, Z+5	; 0x05
+ 48a:	0f 90       	pop	r0
+ 48c:	0f 90       	pop	r0
+ 48e:	0f 90       	pop	r0
+ 490:	0f 90       	pop	r0
+ 492:	cf 91       	pop	r28
+ 494:	df 91       	pop	r29
+ 496:	1f 91       	pop	r17
+ 498:	0f 91       	pop	r16
+ 49a:	ff 90       	pop	r15
+ 49c:	ef 90       	pop	r14
+ 49e:	08 95       	ret
+
+000004a0 <_ZN12CameraVC070614setCompressionEh>:
+ 4a0:	0f 93       	push	r16
+ 4a2:	1f 93       	push	r17
+ 4a4:	df 93       	push	r29
+ 4a6:	cf 93       	push	r28
+ 4a8:	00 d0       	rcall	.+0      	; 0x4aa <_ZN12CameraVC070614setCompressionEh+0xa>
+ 4aa:	00 d0       	rcall	.+0      	; 0x4ac <_ZN12CameraVC070614setCompressionEh+0xc>
+ 4ac:	0f 92       	push	r0
+ 4ae:	cd b7       	in	r28, 0x3d	; 61
+ 4b0:	de b7       	in	r29, 0x3e	; 62
+ 4b2:	fe 01       	movw	r30, r28
+ 4b4:	31 96       	adiw	r30, 0x01	; 1
+ 4b6:	25 e0       	ldi	r18, 0x05	; 5
+ 4b8:	df 01       	movw	r26, r30
+ 4ba:	1d 92       	st	X+, r1
+ 4bc:	2a 95       	dec	r18
+ 4be:	01 f4       	brne	.+0      	; 0x4c0 <_ZN12CameraVC070614setCompressionEh+0x20>
+ 4c0:	21 e0       	ldi	r18, 0x01	; 1
+ 4c2:	29 83       	std	Y+1, r18	; 0x01
+ 4c4:	2a 83       	std	Y+2, r18	; 0x02
+ 4c6:	22 e1       	ldi	r18, 0x12	; 18
+ 4c8:	2b 83       	std	Y+3, r18	; 0x03
+ 4ca:	24 e0       	ldi	r18, 0x04	; 4
+ 4cc:	2c 83       	std	Y+4, r18	; 0x04
+ 4ce:	6d 83       	std	Y+5, r22	; 0x05
+ 4d0:	61 e3       	ldi	r22, 0x31	; 49
+ 4d2:	af 01       	movw	r20, r30
+ 4d4:	25 e0       	ldi	r18, 0x05	; 5
+ 4d6:	05 e0       	ldi	r16, 0x05	; 5
+ 4d8:	10 e0       	ldi	r17, 0x00	; 0
+ 4da:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 4de:	0f 90       	pop	r0
+ 4e0:	0f 90       	pop	r0
+ 4e2:	0f 90       	pop	r0
+ 4e4:	0f 90       	pop	r0
+ 4e6:	0f 90       	pop	r0
+ 4e8:	cf 91       	pop	r28
+ 4ea:	df 91       	pop	r29
+ 4ec:	1f 91       	pop	r17
+ 4ee:	0f 91       	pop	r16
+ 4f0:	08 95       	ret
+
+000004f2 <_ZN12CameraVC070616setOsdCharactersEhhPhh>:
+ 4f2:	af 92       	push	r10
+ 4f4:	bf 92       	push	r11
+ 4f6:	cf 92       	push	r12
+ 4f8:	df 92       	push	r13
+ 4fa:	ef 92       	push	r14
+ 4fc:	ff 92       	push	r15
+ 4fe:	0f 93       	push	r16
+ 500:	1f 93       	push	r17
+ 502:	df 93       	push	r29
+ 504:	cf 93       	push	r28
+ 506:	cd b7       	in	r28, 0x3d	; 61
+ 508:	de b7       	in	r29, 0x3e	; 62
+ 50a:	6c 01       	movw	r12, r24
+ 50c:	54 2f       	mov	r21, r20
+ 50e:	e2 2f       	mov	r30, r18
+ 510:	73 2f       	mov	r23, r19
+ 512:	ad b6       	in	r10, 0x3d	; 61
+ 514:	be b6       	in	r11, 0x3e	; 62
+ 516:	40 2f       	mov	r20, r16
+ 518:	0f 30       	cpi	r16, 0x0F	; 15
+ 51a:	00 f0       	brcs	.+0      	; 0x51c <_ZN12CameraVC070616setOsdCharactersEhhPhh+0x2a>
+ 51c:	4e e0       	ldi	r20, 0x0E	; 14
+ 51e:	04 2f       	mov	r16, r20
+ 520:	10 e0       	ldi	r17, 0x00	; 0
+ 522:	0f 5f       	subi	r16, 0xFF	; 255
+ 524:	1f 4f       	sbci	r17, 0xFF	; 255
+ 526:	c8 01       	movw	r24, r16
+ 528:	01 96       	adiw	r24, 0x01	; 1
+ 52a:	2d b7       	in	r18, 0x3d	; 61
+ 52c:	3e b7       	in	r19, 0x3e	; 62
+ 52e:	28 1b       	sub	r18, r24
+ 530:	39 0b       	sbc	r19, r25
+ 532:	0f b6       	in	r0, 0x3f	; 63
+ 534:	f8 94       	cli
+ 536:	3e bf       	out	0x3e, r19	; 62
+ 538:	0f be       	out	0x3f, r0	; 63
+ 53a:	2d bf       	out	0x3d, r18	; 61
+ 53c:	ed b6       	in	r14, 0x3d	; 61
+ 53e:	fe b6       	in	r15, 0x3e	; 62
+ 540:	08 94       	sec
+ 542:	e1 1c       	adc	r14, r1
+ 544:	f1 1c       	adc	r15, r1
+ 546:	ad b7       	in	r26, 0x3d	; 61
+ 548:	be b7       	in	r27, 0x3e	; 62
+ 54a:	11 96       	adiw	r26, 0x01	; 1
+ 54c:	4c 93       	st	X, r20
+ 54e:	62 95       	swap	r22
+ 550:	66 0f       	add	r22, r22
+ 552:	66 0f       	add	r22, r22
+ 554:	60 74       	andi	r22, 0x40	; 64
+ 556:	5f 71       	andi	r21, 0x1F	; 31
+ 558:	65 2b       	or	r22, r21
+ 55a:	d7 01       	movw	r26, r14
+ 55c:	11 96       	adiw	r26, 0x01	; 1
+ 55e:	6c 93       	st	X, r22
+ 560:	2d 5f       	subi	r18, 0xFD	; 253
+ 562:	3f 4f       	sbci	r19, 0xFF	; 255
+ 564:	c9 01       	movw	r24, r18
+ 566:	6e 2f       	mov	r22, r30
+ 568:	50 e0       	ldi	r21, 0x00	; 0
+ 56a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 56e:	0f 5f       	subi	r16, 0xFF	; 255
+ 570:	c6 01       	movw	r24, r12
+ 572:	65 e4       	ldi	r22, 0x45	; 69
+ 574:	a7 01       	movw	r20, r14
+ 576:	20 2f       	mov	r18, r16
+ 578:	05 e0       	ldi	r16, 0x05	; 5
+ 57a:	10 e0       	ldi	r17, 0x00	; 0
+ 57c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 580:	0f b6       	in	r0, 0x3f	; 63
+ 582:	f8 94       	cli
+ 584:	be be       	out	0x3e, r11	; 62
+ 586:	0f be       	out	0x3f, r0	; 63
+ 588:	ad be       	out	0x3d, r10	; 61
+ 58a:	cf 91       	pop	r28
+ 58c:	df 91       	pop	r29
+ 58e:	1f 91       	pop	r17
+ 590:	0f 91       	pop	r16
+ 592:	ff 90       	pop	r15
+ 594:	ef 90       	pop	r14
+ 596:	df 90       	pop	r13
+ 598:	cf 90       	pop	r12
+ 59a:	bf 90       	pop	r11
+ 59c:	af 90       	pop	r10
+ 59e:	08 95       	ret
+
+000005a0 <_ZN12CameraVC070610getVersionEv>:
+ 5a0:	cf 92       	push	r12
+ 5a2:	df 92       	push	r13
+ 5a4:	ef 92       	push	r14
+ 5a6:	ff 92       	push	r15
+ 5a8:	0f 93       	push	r16
+ 5aa:	1f 93       	push	r17
+ 5ac:	df 93       	push	r29
+ 5ae:	6c 01       	movw	r12, r24
+ 5b0:	61 e1       	ldi	r22, 0x11	; 17
+ 5b2:	4d b7       	in	r20, 0x3d	; 61
+ 5b4:	5e b7       	in	r21, 0x3e	; 62
+ 5b6:	4f 5f       	subi	r20, 0xFF	; 255
+ 5b8:	5f 4f       	sbci	r21, 0xFF	; 255
+ 5ba:	20 e0       	ldi	r18, 0x00	; 0
+ 5bc:	02 e1       	ldi	r16, 0x12	; 18
+ 5be:	10 e0       	ldi	r17, 0x00	; 0
+ 5c0:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 5c4:	88 23       	and	r24, r24
+ 5c6:	01 f4       	brne	.+0      	; 0x5c8 <_ZN12CameraVC070610getVersionEv+0x28>
+ 5c8:	e0 e0       	ldi	r30, 0x00	; 0
+ 5ca:	70 e0       	ldi	r23, 0x00	; 0
+ 5cc:	60 e0       	ldi	r22, 0x00	; 0
+ 5ce:	00 c0       	rjmp	.+0      	; 0x5d0 <_ZN12CameraVC070610getVersionEv+0x30>
+ 5d0:	20 e0       	ldi	r18, 0x00	; 0
+ 5d2:	30 e0       	ldi	r19, 0x00	; 0
+ 5d4:	f6 01       	movw	r30, r12
+ 5d6:	e2 0f       	add	r30, r18
+ 5d8:	f3 1f       	adc	r31, r19
+ 5da:	80 81       	ld	r24, Z
+ 5dc:	2f 5f       	subi	r18, 0xFF	; 255
+ 5de:	3f 4f       	sbci	r19, 0xFF	; 255
+ 5e0:	80 32       	cpi	r24, 0x20	; 32
+ 5e2:	01 f4       	brne	.+0      	; 0x5e4 <_ZN12CameraVC070610getVersionEv+0x44>
+ 5e4:	c2 0e       	add	r12, r18
+ 5e6:	d3 1e       	adc	r13, r19
+ 5e8:	f6 01       	movw	r30, r12
+ 5ea:	60 81       	ld	r22, Z
+ 5ec:	70 e0       	ldi	r23, 0x00	; 0
+ 5ee:	60 53       	subi	r22, 0x30	; 48
+ 5f0:	70 40       	sbci	r23, 0x00	; 0
+ 5f2:	88 27       	eor	r24, r24
+ 5f4:	77 fd       	sbrc	r23, 7
+ 5f6:	80 95       	com	r24
+ 5f8:	98 2f       	mov	r25, r24
+ 5fa:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 5fe:	20 e0       	ldi	r18, 0x00	; 0
+ 600:	30 e0       	ldi	r19, 0x00	; 0
+ 602:	40 e0       	ldi	r20, 0x00	; 0
+ 604:	50 e0       	ldi	r21, 0x00	; 0
+ 606:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 60a:	7b 01       	movw	r14, r22
+ 60c:	8c 01       	movw	r16, r24
+ 60e:	f6 01       	movw	r30, r12
+ 610:	62 81       	ldd	r22, Z+2	; 0x02
+ 612:	70 e0       	ldi	r23, 0x00	; 0
+ 614:	60 53       	subi	r22, 0x30	; 48
+ 616:	70 40       	sbci	r23, 0x00	; 0
+ 618:	88 27       	eor	r24, r24
+ 61a:	77 fd       	sbrc	r23, 7
+ 61c:	80 95       	com	r24
+ 61e:	98 2f       	mov	r25, r24
+ 620:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 624:	2d ec       	ldi	r18, 0xCD	; 205
+ 626:	3c ec       	ldi	r19, 0xCC	; 204
+ 628:	4c ec       	ldi	r20, 0xCC	; 204
+ 62a:	5d e3       	ldi	r21, 0x3D	; 61
+ 62c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 630:	9b 01       	movw	r18, r22
+ 632:	ac 01       	movw	r20, r24
+ 634:	c8 01       	movw	r24, r16
+ 636:	b7 01       	movw	r22, r14
+ 638:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 63c:	7b 01       	movw	r14, r22
+ 63e:	8c 01       	movw	r16, r24
+ 640:	f6 01       	movw	r30, r12
+ 642:	63 81       	ldd	r22, Z+3	; 0x03
+ 644:	70 e0       	ldi	r23, 0x00	; 0
+ 646:	60 53       	subi	r22, 0x30	; 48
+ 648:	70 40       	sbci	r23, 0x00	; 0
+ 64a:	88 27       	eor	r24, r24
+ 64c:	77 fd       	sbrc	r23, 7
+ 64e:	80 95       	com	r24
+ 650:	98 2f       	mov	r25, r24
+ 652:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 656:	2a e0       	ldi	r18, 0x0A	; 10
+ 658:	37 ed       	ldi	r19, 0xD7	; 215
+ 65a:	43 e2       	ldi	r20, 0x23	; 35
+ 65c:	5c e3       	ldi	r21, 0x3C	; 60
+ 65e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 662:	9b 01       	movw	r18, r22
+ 664:	ac 01       	movw	r20, r24
+ 666:	c8 01       	movw	r24, r16
+ 668:	b7 01       	movw	r22, r14
+ 66a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 66e:	e6 2f       	mov	r30, r22
+ 670:	69 2f       	mov	r22, r25
+ 672:	2e 2f       	mov	r18, r30
+ 674:	37 2f       	mov	r19, r23
+ 676:	48 2f       	mov	r20, r24
+ 678:	56 2f       	mov	r21, r22
+ 67a:	b9 01       	movw	r22, r18
+ 67c:	ca 01       	movw	r24, r20
+ 67e:	df 91       	pop	r29
+ 680:	1f 91       	pop	r17
+ 682:	0f 91       	pop	r16
+ 684:	ff 90       	pop	r15
+ 686:	ef 90       	pop	r14
+ 688:	df 90       	pop	r13
+ 68a:	cf 90       	pop	r12
+ 68c:	08 95       	ret
+
+0000068e <_ZN12CameraVC07065resetEv>:
+ 68e:	0f 93       	push	r16
+ 690:	1f 93       	push	r17
+ 692:	df 93       	push	r29
+ 694:	66 e2       	ldi	r22, 0x26	; 38
+ 696:	4d b7       	in	r20, 0x3d	; 61
+ 698:	5e b7       	in	r21, 0x3e	; 62
+ 69a:	4f 5f       	subi	r20, 0xFF	; 255
+ 69c:	5f 4f       	sbci	r21, 0xFF	; 255
+ 69e:	20 e0       	ldi	r18, 0x00	; 0
+ 6a0:	05 e0       	ldi	r16, 0x05	; 5
+ 6a2:	10 e0       	ldi	r17, 0x00	; 0
+ 6a4:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 6a8:	18 2f       	mov	r17, r24
+ 6aa:	88 23       	and	r24, r24
+ 6ac:	01 f0       	breq	.+0      	; 0x6ae <_ZN12CameraVC07065resetEv+0x20>
+ 6ae:	80 e0       	ldi	r24, 0x00	; 0
+ 6b0:	90 e0       	ldi	r25, 0x00	; 0
+ 6b2:	60 e0       	ldi	r22, 0x00	; 0
+ 6b4:	70 e0       	ldi	r23, 0x00	; 0
+ 6b6:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 6ba:	6a e0       	ldi	r22, 0x0A	; 10
+ 6bc:	70 e0       	ldi	r23, 0x00	; 0
+ 6be:	80 e0       	ldi	r24, 0x00	; 0
+ 6c0:	90 e0       	ldi	r25, 0x00	; 0
+ 6c2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 6c6:	81 2f       	mov	r24, r17
+ 6c8:	df 91       	pop	r29
+ 6ca:	1f 91       	pop	r17
+ 6cc:	0f 91       	pop	r16
+ 6ce:	08 95       	ret
+
+000006d0 <_ZN12CameraVC070625getMotionMonitoringStatusEv>:
+ 6d0:	0f 93       	push	r16
+ 6d2:	1f 93       	push	r17
+ 6d4:	cf 93       	push	r28
+ 6d6:	df 93       	push	r29
+ 6d8:	ec 01       	movw	r28, r24
+ 6da:	68 e3       	ldi	r22, 0x38	; 56
+ 6dc:	4d b7       	in	r20, 0x3d	; 61
+ 6de:	5e b7       	in	r21, 0x3e	; 62
+ 6e0:	4f 5f       	subi	r20, 0xFF	; 255
+ 6e2:	5f 4f       	sbci	r21, 0xFF	; 255
+ 6e4:	20 e0       	ldi	r18, 0x00	; 0
+ 6e6:	06 e0       	ldi	r16, 0x06	; 6
+ 6e8:	10 e0       	ldi	r17, 0x00	; 0
+ 6ea:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 6ee:	88 23       	and	r24, r24
+ 6f0:	01 f0       	breq	.+0      	; 0x6f2 <_ZN12CameraVC070625getMotionMonitoringStatusEv+0x22>
+ 6f2:	8d 81       	ldd	r24, Y+5	; 0x05
+ 6f4:	81 11       	cpse	r24, r1
+ 6f6:	81 e0       	ldi	r24, 0x01	; 1
+ 6f8:	df 91       	pop	r29
+ 6fa:	cf 91       	pop	r28
+ 6fc:	1f 91       	pop	r17
+ 6fe:	0f 91       	pop	r16
+ 700:	08 95       	ret
+
+00000702 <_ZN12CameraVC070619setMotionMonitoringEb>:
+ 702:	0f 93       	push	r16
+ 704:	1f 93       	push	r17
+ 706:	df 93       	push	r29
+ 708:	cf 93       	push	r28
+ 70a:	0f 92       	push	r0
+ 70c:	cd b7       	in	r28, 0x3d	; 61
+ 70e:	de b7       	in	r29, 0x3e	; 62
+ 710:	69 83       	std	Y+1, r22	; 0x01
+ 712:	67 e3       	ldi	r22, 0x37	; 55
+ 714:	ae 01       	movw	r20, r28
+ 716:	4f 5f       	subi	r20, 0xFF	; 255
+ 718:	5f 4f       	sbci	r21, 0xFF	; 255
+ 71a:	21 e0       	ldi	r18, 0x01	; 1
+ 71c:	05 e0       	ldi	r16, 0x05	; 5
+ 71e:	10 e0       	ldi	r17, 0x00	; 0
+ 720:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 724:	0f 90       	pop	r0
+ 726:	cf 91       	pop	r28
+ 728:	df 91       	pop	r29
+ 72a:	1f 91       	pop	r17
+ 72c:	0f 91       	pop	r16
+ 72e:	08 95       	ret
+
+00000730 <_ZN12CameraVC070619setOutputResolutionEh>:
+ 730:	0f 93       	push	r16
+ 732:	1f 93       	push	r17
+ 734:	df 93       	push	r29
+ 736:	cf 93       	push	r28
+ 738:	00 d0       	rcall	.+0      	; 0x73a <_ZN12CameraVC070619setOutputResolutionEh+0xa>
+ 73a:	00 d0       	rcall	.+0      	; 0x73c <_ZN12CameraVC070619setOutputResolutionEh+0xc>
+ 73c:	0f 92       	push	r0
+ 73e:	cd b7       	in	r28, 0x3d	; 61
+ 740:	de b7       	in	r29, 0x3e	; 62
+ 742:	fe 01       	movw	r30, r28
+ 744:	31 96       	adiw	r30, 0x01	; 1
+ 746:	25 e0       	ldi	r18, 0x05	; 5
+ 748:	df 01       	movw	r26, r30
+ 74a:	1d 92       	st	X+, r1
+ 74c:	2a 95       	dec	r18
+ 74e:	01 f4       	brne	.+0      	; 0x750 <_ZN12CameraVC070619setOutputResolutionEh+0x20>
+ 750:	24 e0       	ldi	r18, 0x04	; 4
+ 752:	29 83       	std	Y+1, r18	; 0x01
+ 754:	21 e0       	ldi	r18, 0x01	; 1
+ 756:	2a 83       	std	Y+2, r18	; 0x02
+ 758:	29 e1       	ldi	r18, 0x19	; 25
+ 75a:	2c 83       	std	Y+4, r18	; 0x04
+ 75c:	6d 83       	std	Y+5, r22	; 0x05
+ 75e:	61 e3       	ldi	r22, 0x31	; 49
+ 760:	af 01       	movw	r20, r30
+ 762:	25 e0       	ldi	r18, 0x05	; 5
+ 764:	05 e0       	ldi	r16, 0x05	; 5
+ 766:	10 e0       	ldi	r17, 0x00	; 0
+ 768:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 76c:	0f 90       	pop	r0
+ 76e:	0f 90       	pop	r0
+ 770:	0f 90       	pop	r0
+ 772:	0f 90       	pop	r0
+ 774:	0f 90       	pop	r0
+ 776:	cf 91       	pop	r28
+ 778:	df 91       	pop	r29
+ 77a:	1f 91       	pop	r17
+ 77c:	0f 91       	pop	r16
+ 77e:	08 95       	ret
+
+00000780 <_ZN12CameraVC070621getColorControlStatusEv>:
+ 780:	0f 93       	push	r16
+ 782:	1f 93       	push	r17
+ 784:	cf 93       	push	r28
+ 786:	df 93       	push	r29
+ 788:	ec 01       	movw	r28, r24
+ 78a:	6d e3       	ldi	r22, 0x3D	; 61
+ 78c:	4d b7       	in	r20, 0x3d	; 61
+ 78e:	5e b7       	in	r21, 0x3e	; 62
+ 790:	4f 5f       	subi	r20, 0xFF	; 255
+ 792:	5f 4f       	sbci	r21, 0xFF	; 255
+ 794:	20 e0       	ldi	r18, 0x00	; 0
+ 796:	08 e0       	ldi	r16, 0x08	; 8
+ 798:	10 e0       	ldi	r17, 0x00	; 0
+ 79a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 79e:	88 23       	and	r24, r24
+ 7a0:	01 f4       	brne	.+0      	; 0x7a2 <_ZN12CameraVC070621getColorControlStatusEv+0x22>
+ 7a2:	20 e0       	ldi	r18, 0x00	; 0
+ 7a4:	00 c0       	rjmp	.+0      	; 0x7a6 <_ZN12CameraVC070621getColorControlStatusEv+0x26>
+ 7a6:	2e 81       	ldd	r18, Y+6	; 0x06
+ 7a8:	22 0f       	add	r18, r18
+ 7aa:	22 0f       	add	r18, r18
+ 7ac:	24 70       	andi	r18, 0x04	; 4
+ 7ae:	8d 81       	ldd	r24, Y+5	; 0x05
+ 7b0:	81 70       	andi	r24, 0x01	; 1
+ 7b2:	28 2b       	or	r18, r24
+ 7b4:	82 2f       	mov	r24, r18
+ 7b6:	df 91       	pop	r29
+ 7b8:	cf 91       	pop	r28
+ 7ba:	1f 91       	pop	r17
+ 7bc:	0f 91       	pop	r16
+ 7be:	08 95       	ret
+
+000007c0 <_ZN12CameraVC070615setColorControlEhh>:
+ 7c0:	0f 93       	push	r16
+ 7c2:	1f 93       	push	r17
+ 7c4:	df 93       	push	r29
+ 7c6:	cf 93       	push	r28
+ 7c8:	00 d0       	rcall	.+0      	; 0x7ca <_ZN12CameraVC070615setColorControlEhh+0xa>
+ 7ca:	cd b7       	in	r28, 0x3d	; 61
+ 7cc:	de b7       	in	r29, 0x3e	; 62
+ 7ce:	61 70       	andi	r22, 0x01	; 1
+ 7d0:	69 83       	std	Y+1, r22	; 0x01
+ 7d2:	41 70       	andi	r20, 0x01	; 1
+ 7d4:	4a 83       	std	Y+2, r20	; 0x02
+ 7d6:	6c e3       	ldi	r22, 0x3C	; 60
+ 7d8:	ae 01       	movw	r20, r28
+ 7da:	4f 5f       	subi	r20, 0xFF	; 255
+ 7dc:	5f 4f       	sbci	r21, 0xFF	; 255
+ 7de:	22 e0       	ldi	r18, 0x02	; 2
+ 7e0:	05 e0       	ldi	r16, 0x05	; 5
+ 7e2:	10 e0       	ldi	r17, 0x00	; 0
+ 7e4:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 7e8:	0f 90       	pop	r0
+ 7ea:	0f 90       	pop	r0
+ 7ec:	cf 91       	pop	r28
+ 7ee:	df 91       	pop	r29
+ 7f0:	1f 91       	pop	r17
+ 7f2:	0f 91       	pop	r16
+ 7f4:	08 95       	ret
+
+000007f6 <_ZN12CameraVC070625getHorizontalMirrorStatusEv>:
+ 7f6:	0f 93       	push	r16
+ 7f8:	1f 93       	push	r17
+ 7fa:	cf 93       	push	r28
+ 7fc:	df 93       	push	r29
+ 7fe:	ec 01       	movw	r28, r24
+ 800:	6b e3       	ldi	r22, 0x3B	; 59
+ 802:	4d b7       	in	r20, 0x3d	; 61
+ 804:	5e b7       	in	r21, 0x3e	; 62
+ 806:	4f 5f       	subi	r20, 0xFF	; 255
+ 808:	5f 4f       	sbci	r21, 0xFF	; 255
+ 80a:	20 e0       	ldi	r18, 0x00	; 0
+ 80c:	07 e0       	ldi	r16, 0x07	; 7
+ 80e:	10 e0       	ldi	r17, 0x00	; 0
+ 810:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 814:	88 23       	and	r24, r24
+ 816:	01 f4       	brne	.+0      	; 0x818 <_ZN12CameraVC070625getHorizontalMirrorStatusEv+0x22>
+ 818:	20 e0       	ldi	r18, 0x00	; 0
+ 81a:	00 c0       	rjmp	.+0      	; 0x81c <_ZN12CameraVC070625getHorizontalMirrorStatusEv+0x26>
+ 81c:	2d 81       	ldd	r18, Y+5	; 0x05
+ 81e:	22 0f       	add	r18, r18
+ 820:	22 70       	andi	r18, 0x02	; 2
+ 822:	8e 81       	ldd	r24, Y+6	; 0x06
+ 824:	81 70       	andi	r24, 0x01	; 1
+ 826:	28 2b       	or	r18, r24
+ 828:	82 2f       	mov	r24, r18
+ 82a:	df 91       	pop	r29
+ 82c:	cf 91       	pop	r28
+ 82e:	1f 91       	pop	r17
+ 830:	0f 91       	pop	r16
+ 832:	08 95       	ret
+
+00000834 <_ZN12CameraVC070619setHorizontalMirrorEhh>:
+ 834:	0f 93       	push	r16
+ 836:	1f 93       	push	r17
+ 838:	df 93       	push	r29
+ 83a:	cf 93       	push	r28
+ 83c:	00 d0       	rcall	.+0      	; 0x83e <_ZN12CameraVC070619setHorizontalMirrorEhh+0xa>
+ 83e:	cd b7       	in	r28, 0x3d	; 61
+ 840:	de b7       	in	r29, 0x3e	; 62
+ 842:	61 70       	andi	r22, 0x01	; 1
+ 844:	69 83       	std	Y+1, r22	; 0x01
+ 846:	41 70       	andi	r20, 0x01	; 1
+ 848:	4a 83       	std	Y+2, r20	; 0x02
+ 84a:	6a e3       	ldi	r22, 0x3A	; 58
+ 84c:	ae 01       	movw	r20, r28
+ 84e:	4f 5f       	subi	r20, 0xFF	; 255
+ 850:	5f 4f       	sbci	r21, 0xFF	; 255
+ 852:	22 e0       	ldi	r18, 0x02	; 2
+ 854:	05 e0       	ldi	r16, 0x05	; 5
+ 856:	10 e0       	ldi	r17, 0x00	; 0
+ 858:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 85c:	0f 90       	pop	r0
+ 85e:	0f 90       	pop	r0
+ 860:	cf 91       	pop	r28
+ 862:	df 91       	pop	r29
+ 864:	1f 91       	pop	r17
+ 866:	0f 91       	pop	r16
+ 868:	08 95       	ret
+
+0000086a <_ZN12CameraVC070614getFrameLengthEv>:
+ 86a:	ef 92       	push	r14
+ 86c:	ff 92       	push	r15
+ 86e:	0f 93       	push	r16
+ 870:	1f 93       	push	r17
+ 872:	df 93       	push	r29
+ 874:	cf 93       	push	r28
+ 876:	0f 92       	push	r0
+ 878:	cd b7       	in	r28, 0x3d	; 61
+ 87a:	de b7       	in	r29, 0x3e	; 62
+ 87c:	7c 01       	movw	r14, r24
+ 87e:	19 82       	std	Y+1, r1	; 0x01
+ 880:	64 e3       	ldi	r22, 0x34	; 52
+ 882:	ae 01       	movw	r20, r28
+ 884:	4f 5f       	subi	r20, 0xFF	; 255
+ 886:	5f 4f       	sbci	r21, 0xFF	; 255
+ 888:	21 e0       	ldi	r18, 0x01	; 1
+ 88a:	09 e0       	ldi	r16, 0x09	; 9
+ 88c:	10 e0       	ldi	r17, 0x00	; 0
+ 88e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 892:	88 23       	and	r24, r24
+ 894:	01 f4       	brne	.+0      	; 0x896 <_ZN12CameraVC070614getFrameLengthEv+0x2c>
+ 896:	f7 01       	movw	r30, r14
+ 898:	84 81       	ldd	r24, Z+4	; 0x04
+ 89a:	84 30       	cpi	r24, 0x04	; 4
+ 89c:	01 f4       	brne	.+0      	; 0x89e <_ZN12CameraVC070614getFrameLengthEv+0x34>
+ 89e:	20 e0       	ldi	r18, 0x00	; 0
+ 8a0:	30 e0       	ldi	r19, 0x00	; 0
+ 8a2:	c9 01       	movw	r24, r18
+ 8a4:	0f 90       	pop	r0
+ 8a6:	cf 91       	pop	r28
+ 8a8:	df 91       	pop	r29
+ 8aa:	1f 91       	pop	r17
+ 8ac:	0f 91       	pop	r16
+ 8ae:	ff 90       	pop	r15
+ 8b0:	ef 90       	pop	r14
+ 8b2:	08 95       	ret
+ 8b4:	f7 01       	movw	r30, r14
+ 8b6:	97 81       	ldd	r25, Z+7	; 0x07
+ 8b8:	80 e0       	ldi	r24, 0x00	; 0
+ 8ba:	20 85       	ldd	r18, Z+8	; 0x08
+ 8bc:	30 e0       	ldi	r19, 0x00	; 0
+ 8be:	28 2b       	or	r18, r24
+ 8c0:	39 2b       	or	r19, r25
+ 8c2:	00 c0       	rjmp	.+0      	; 0x8c4 <_ZN12CameraVC07069readFrameEPhjjj>
+
+000008c4 <_ZN12CameraVC07069readFrameEPhjjj>:
+ 8c4:	8f 92       	push	r8
+ 8c6:	9f 92       	push	r9
+ 8c8:	af 92       	push	r10
+ 8ca:	bf 92       	push	r11
+ 8cc:	cf 92       	push	r12
+ 8ce:	df 92       	push	r13
+ 8d0:	ef 92       	push	r14
+ 8d2:	ff 92       	push	r15
+ 8d4:	0f 93       	push	r16
+ 8d6:	1f 93       	push	r17
+ 8d8:	df 93       	push	r29
+ 8da:	cf 93       	push	r28
+ 8dc:	cd b7       	in	r28, 0x3d	; 61
+ 8de:	de b7       	in	r29, 0x3e	; 62
+ 8e0:	2c 97       	sbiw	r28, 0x0c	; 12
+ 8e2:	0f b6       	in	r0, 0x3f	; 63
+ 8e4:	f8 94       	cli
+ 8e6:	de bf       	out	0x3e, r29	; 62
+ 8e8:	0f be       	out	0x3f, r0	; 63
+ 8ea:	cd bf       	out	0x3d, r28	; 61
+ 8ec:	6c 01       	movw	r12, r24
+ 8ee:	4b 01       	movw	r8, r22
+ 8f0:	59 01       	movw	r10, r18
+ 8f2:	78 01       	movw	r14, r16
+ 8f4:	fe 01       	movw	r30, r28
+ 8f6:	31 96       	adiw	r30, 0x01	; 1
+ 8f8:	8c e0       	ldi	r24, 0x0C	; 12
+ 8fa:	df 01       	movw	r26, r30
+ 8fc:	1d 92       	st	X+, r1
+ 8fe:	8a 95       	dec	r24
+ 900:	01 f4       	brne	.+0      	; 0x902 <_ZN12CameraVC07069readFrameEPhjjj+0x3e>
+ 902:	8a e0       	ldi	r24, 0x0A	; 10
+ 904:	8a 83       	std	Y+2, r24	; 0x02
+ 906:	81 e0       	ldi	r24, 0x01	; 1
+ 908:	8b 87       	std	Y+11, r24	; 0x0b
+ 90a:	5d 83       	std	Y+5, r21	; 0x05
+ 90c:	4e 83       	std	Y+6, r20	; 0x06
+ 90e:	f9 86       	std	Y+9, r15	; 0x09
+ 910:	0a 87       	std	Y+10, r16	; 0x0a
+ 912:	c6 01       	movw	r24, r12
+ 914:	62 e3       	ldi	r22, 0x32	; 50
+ 916:	af 01       	movw	r20, r30
+ 918:	2c e0       	ldi	r18, 0x0C	; 12
+ 91a:	05 e0       	ldi	r16, 0x05	; 5
+ 91c:	10 e0       	ldi	r17, 0x00	; 0
+ 91e:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 922:	88 23       	and	r24, r24
+ 924:	01 f4       	brne	.+0      	; 0x926 <_ZN12CameraVC07069readFrameEPhjjj+0x62>
+ 926:	00 e0       	ldi	r16, 0x00	; 0
+ 928:	10 e0       	ldi	r17, 0x00	; 0
+ 92a:	00 c0       	rjmp	.+0      	; 0x92c <_ZN12CameraVC07069readFrameEPhjjj+0x68>
+ 92c:	00 e0       	ldi	r16, 0x00	; 0
+ 92e:	10 e0       	ldi	r17, 0x00	; 0
+ 930:	00 c0       	rjmp	.+0      	; 0x932 <_ZN12CameraVC07069readFrameEPhjjj+0x6e>
+ 932:	6a e0       	ldi	r22, 0x0A	; 10
+ 934:	70 e0       	ldi	r23, 0x00	; 0
+ 936:	80 e0       	ldi	r24, 0x00	; 0
+ 938:	90 e0       	ldi	r25, 0x00	; 0
+ 93a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 93e:	b8 01       	movw	r22, r16
+ 940:	6a 0d       	add	r22, r10
+ 942:	7b 1d       	adc	r23, r11
+ 944:	68 0d       	add	r22, r8
+ 946:	79 1d       	adc	r23, r9
+ 948:	a7 01       	movw	r20, r14
+ 94a:	40 1b       	sub	r20, r16
+ 94c:	51 0b       	sbc	r21, r17
+ 94e:	c6 01       	movw	r24, r12
+ 950:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 954:	08 0f       	add	r16, r24
+ 956:	19 1f       	adc	r17, r25
+ 958:	0e 15       	cp	r16, r14
+ 95a:	1f 05       	cpc	r17, r15
+ 95c:	00 f0       	brcs	.+0      	; 0x95e <_ZN12CameraVC07069readFrameEPhjjj+0x9a>
+ 95e:	c6 01       	movw	r24, r12
+ 960:	65 e0       	ldi	r22, 0x05	; 5
+ 962:	70 e0       	ldi	r23, 0x00	; 0
+ 964:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 968:	c8 01       	movw	r24, r16
+ 96a:	2c 96       	adiw	r28, 0x0c	; 12
+ 96c:	0f b6       	in	r0, 0x3f	; 63
+ 96e:	f8 94       	cli
+ 970:	de bf       	out	0x3e, r29	; 62
+ 972:	0f be       	out	0x3f, r0	; 63
+ 974:	cd bf       	out	0x3d, r28	; 61
+ 976:	cf 91       	pop	r28
+ 978:	df 91       	pop	r29
+ 97a:	1f 91       	pop	r17
+ 97c:	0f 91       	pop	r16
+ 97e:	ff 90       	pop	r15
+ 980:	ef 90       	pop	r14
+ 982:	df 90       	pop	r13
+ 984:	cf 90       	pop	r12
+ 986:	bf 90       	pop	r11
+ 988:	af 90       	pop	r10
+ 98a:	9f 90       	pop	r9
+ 98c:	8f 90       	pop	r8
+ 98e:	08 95       	ret
+
+00000990 <_ZN12CameraVC070620executeBufferControlEh>:
+ 990:	0f 93       	push	r16
+ 992:	1f 93       	push	r17
+ 994:	df 93       	push	r29
+ 996:	cf 93       	push	r28
+ 998:	0f 92       	push	r0
+ 99a:	cd b7       	in	r28, 0x3d	; 61
+ 99c:	de b7       	in	r29, 0x3e	; 62
+ 99e:	63 70       	andi	r22, 0x03	; 3
+ 9a0:	69 83       	std	Y+1, r22	; 0x01
+ 9a2:	66 e3       	ldi	r22, 0x36	; 54
+ 9a4:	ae 01       	movw	r20, r28
+ 9a6:	4f 5f       	subi	r20, 0xFF	; 255
+ 9a8:	5f 4f       	sbci	r21, 0xFF	; 255
+ 9aa:	21 e0       	ldi	r18, 0x01	; 1
+ 9ac:	05 e0       	ldi	r16, 0x05	; 5
+ 9ae:	10 e0       	ldi	r17, 0x00	; 0
+ 9b0:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 9b4:	0f 90       	pop	r0
+ 9b6:	cf 91       	pop	r28
+ 9b8:	df 91       	pop	r29
+ 9ba:	1f 91       	pop	r17
+ 9bc:	0f 91       	pop	r16
+ 9be:	08 95       	ret
+
+000009c0 <_ZN12CameraVC07066resumeEv>:
+ 9c0:	63 e0       	ldi	r22, 0x03	; 3
+ 9c2:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 9c6:	08 95       	ret
+
+000009c8 <_ZN12CameraVC07067captureEv>:
+ 9c8:	60 e0       	ldi	r22, 0x00	; 0
+ 9ca:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 9ce:	08 95       	ret
+
+000009d0 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE>:
+ 9d0:	8f 92       	push	r8
+ 9d2:	9f 92       	push	r9
+ 9d4:	af 92       	push	r10
+ 9d6:	bf 92       	push	r11
+ 9d8:	cf 92       	push	r12
+ 9da:	df 92       	push	r13
+ 9dc:	ef 92       	push	r14
+ 9de:	ff 92       	push	r15
+ 9e0:	0f 93       	push	r16
+ 9e2:	1f 93       	push	r17
+ 9e4:	cf 93       	push	r28
+ 9e6:	df 93       	push	r29
+ 9e8:	ec 01       	movw	r28, r24
+ 9ea:	8b 01       	movw	r16, r22
+ 9ec:	4a 01       	movw	r8, r20
+ 9ee:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ 9f2:	5b 01       	movw	r10, r22
+ 9f4:	6c 01       	movw	r12, r24
+ 9f6:	78 01       	movw	r14, r16
+ 9f8:	00 e0       	ldi	r16, 0x00	; 0
+ 9fa:	10 e0       	ldi	r17, 0x00	; 0
+ 9fc:	ce 01       	movw	r24, r28
+ 9fe:	64 e0       	ldi	r22, 0x04	; 4
+ a00:	70 e0       	ldi	r23, 0x00	; 0
+ a02:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ a06:	88 81       	ld	r24, Y
+ a08:	86 37       	cpi	r24, 0x76	; 118
+ a0a:	01 f4       	brne	.+0      	; 0xa0c <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x3c>
+ a0c:	99 81       	ldd	r25, Y+1	; 0x01
+ a0e:	89 89       	ldd	r24, Y+17	; 0x11
+ a10:	98 17       	cp	r25, r24
+ a12:	01 f4       	brne	.+0      	; 0xa14 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x44>
+ a14:	8a 81       	ldd	r24, Y+2	; 0x02
+ a16:	89 33       	cpi	r24, 0x39	; 57
+ a18:	01 f4       	brne	.+0      	; 0xa1a <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x4a>
+ a1a:	8b 81       	ldd	r24, Y+3	; 0x03
+ a1c:	88 23       	and	r24, r24
+ a1e:	01 f4       	brne	.+0      	; 0xa20 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x50>
+ a20:	00 c0       	rjmp	.+0      	; 0xa22 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x52>
+ a22:	ce 01       	movw	r24, r28
+ a24:	f4 01       	movw	r30, r8
+ a26:	09 95       	icall
+ a28:	00 c0       	rjmp	.+0      	; 0xa2a <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x5a>
+ a2a:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ a2e:	6a 19       	sub	r22, r10
+ a30:	7b 09       	sbc	r23, r11
+ a32:	8c 09       	sbc	r24, r12
+ a34:	9d 09       	sbc	r25, r13
+ a36:	6e 15       	cp	r22, r14
+ a38:	7f 05       	cpc	r23, r15
+ a3a:	80 07       	cpc	r24, r16
+ a3c:	91 07       	cpc	r25, r17
+ a3e:	00 f0       	brcs	.+0      	; 0xa40 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x70>
+ a40:	80 e0       	ldi	r24, 0x00	; 0
+ a42:	df 91       	pop	r29
+ a44:	cf 91       	pop	r28
+ a46:	1f 91       	pop	r17
+ a48:	0f 91       	pop	r16
+ a4a:	ff 90       	pop	r15
+ a4c:	ef 90       	pop	r14
+ a4e:	df 90       	pop	r13
+ a50:	cf 90       	pop	r12
+ a52:	bf 90       	pop	r11
+ a54:	af 90       	pop	r10
+ a56:	9f 90       	pop	r9
+ a58:	8f 90       	pop	r8
+ a5a:	08 95       	ret
+ a5c:	81 14       	cp	r8, r1
+ a5e:	91 04       	cpc	r9, r1
+ a60:	01 f4       	brne	.+0      	; 0xa62 <_ZN12CameraVC070620pollMotionMonitoringEjPFvPvE+0x92>
+ a62:	81 e0       	ldi	r24, 0x01	; 1
+ a64:	00 c0       	rjmp	.+0      	; 0xa66 <_ZN12CameraVC07065closeEv>
+
+00000a66 <_ZN12CameraVC07065closeEv>:
+ a66:	fc 01       	movw	r30, r24
+ a68:	86 89       	ldd	r24, Z+22	; 0x16
+ a6a:	97 89       	ldd	r25, Z+23	; 0x17
+ a6c:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ a70:	81 e0       	ldi	r24, 0x01	; 1
+ a72:	08 95       	ret
+
+00000a74 <_ZN12CameraVC07065beginEj>:
+ a74:	ab 01       	movw	r20, r22
+ a76:	60 e0       	ldi	r22, 0x00	; 0
+ a78:	70 e0       	ldi	r23, 0x00	; 0
+ a7a:	fc 01       	movw	r30, r24
+ a7c:	86 89       	ldd	r24, Z+22	; 0x16
+ a7e:	97 89       	ldd	r25, Z+23	; 0x17
+ a80:	0e 94 00 00 	call	0	; 0x0 <_ZN12CameraVC0706C2EP14SoftwareSerial>
+ a84:	81 e0       	ldi	r24, 0x01	; 1
+ a86:	08 95       	ret
+
 CameraOV7670.o:     file format elf32-avr
 
 Sections:
