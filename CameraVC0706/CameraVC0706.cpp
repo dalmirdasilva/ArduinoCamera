@@ -48,11 +48,12 @@ unsigned int CameraVC0706::readFrame(unsigned char *buf,
     return bytesRead;
 }
 
-bool CameraVC0706::setDownSize(unsigned char widthDownSize, unsigned char heightDownSize) {
-    unsigned char args[] = {(widthDownSize & 0x03) | ((heightDownSize << 2) & 0x0c)};
+bool CameraVC0706::setDownSize(unsigned char widthDownSize,
+        unsigned char heightDownSize) {
+    unsigned char args[] = {(widthDownSize & 0x03)
+            | ((heightDownSize << 2) & 0x0c)};
     return executeCommand(DOWNSIZE_CTRL, args, sizeof(args), 5);
 }
-
 
 unsigned char CameraVC0706::getDownSize() {
     unsigned char args[] = {};
@@ -132,13 +133,20 @@ bool CameraVC0706::pollMotionMonitoring(unsigned int timeout,
     bool detected = false;
     start = millis();
     do {
-        readResponse(4);
-        detected = verifyResponse(COMM_MOTION_DETECTED);
+        if (readResponse(5) > 0) {
+			detected = verifyResponse(COMM_MOTION_DETECTED);
+		}
         if (detected && callback != 0) {
             callback(this);
         }
     } while (!detected && ((millis() - start) < timeout));
     return detected;
+}
+
+bool CameraVC0706::setMotionControl(unsigned char motionControl,
+		unsigned char param0, unsigned char param1) {
+	unsigned char args[] = {motionControl, param0, param1};
+	return executeCommand(MOTION_CTRL, args, sizeof(args), 5);
 }
 
 unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {

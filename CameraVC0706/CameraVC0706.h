@@ -48,6 +48,22 @@ public:
 		UART = 0x01,
 	};
 	
+	enum MotionControl {
+		
+		// Motion control and enabling control
+		MOTION_CONTROL = 0, 
+		
+		// Alarm-output attribute
+		ALARM_ATTRIBUTE = 1,
+		
+		// Alarm-output enabling control
+		ALARM_ENABLING = 2,
+		
+		// Alarm-output control
+		ALARM_CONTROL = 3
+	};
+
+	
 	enum ColorControlMode {
 		
 		// Automatically step black-white and color.
@@ -467,6 +483,69 @@ public:
 	 * @param return			The flag.
 	 */
 	bool getMotionMonitoringStatus();
+	
+	/**
+	 * Command function : motion control 
+	 * 
+	 * Command format :0x56+serial number+0x42+data-lengths+motion attribute+control item 
+	 * 
+	 * <pre>
+	 * motion attribute:
+	 * 
+	 * 		0:motion control and enabling control
+	 * 		1:alarm-output attribute
+	 * 		2:alarm-output enabling control
+	 * 		3:alarm-output control 
+	 * 
+	 * control item:
+	 * 		> motion control and enabling control
+	 * 		The first byte:
+	 * 			0:GPIO
+	 * 			1:UART
+	 * 		The second byte:
+	 * 			0:forbid motion monitoring
+	 * 			1:start motion monitoring
+	 *		> alarm-output attribute
+	 * 		The first byte:
+	 * 			bit0:alarm type
+	 * 			0:stop alarming at a certain time.
+	 * 			1:alarm at all times.
+	 * 			Bit1:alarm electrical level
+	 * 			0:it is low level until alarm.
+	 * 			1:it is high level until alarm.
+	 * 		The second and third byte mean the alarm time, the lower byte follows the higher byte, the unit is 10 millisecond.
+	 * 		> alarm-output enabling control
+	 * 			The first byte:
+	 * 			0:forbid alarm-output
+	 * 			1:enable alarm-output
+	 * 		> alarm-output control
+	 * 			The first byte:
+	 * 			0:stop alarm-output
+	 * 			1:start alarm-output
+	 * </pre>
+	 * 
+	 * Return format :
+	 * OK: 0x76+serial number+0x42+0x00+0x00
+	 * Error:0x76+serial number+0x42+0x03+0x00
+	 * E.g.
+	 * > 0x56+0x00+0x42+0x03+0x00+0x01+0x01
+	 * Enable motion monitoring by MCU UART, and open it.
+	 * > 0x56+0x00+0x42+0x03+0x00+0x01+0x00
+	 * Enable motion monitoring by MCU UART, and stop it.
+	 * > 0x56+0x00+0x42+0x03+0x00+0x00+0x00
+	 * Enable motion monitoring by GPIO.
+	 * > 0x56+0x00+0x42+0x04+0x01+0x02+0x00+0x64
+	 * Set alarm-output attribute.
+	 * > 0x56+0x00+0x42+0x02+0x02+0x01
+	 * Enable alarm-output control.
+	 * > 0x56+0x00+0x42+0x02+0x02+0x00
+	 * Disallow alarm-output control.
+	 * > 0x56+0x00+0x42+0x02+0x03+0x01
+	 * Start alarm-output.
+	 * > 0x56+0x00+0x42+0x02+0x03+0x00
+	 * Stop alarm-output.
+	 */
+	bool setMotionControl(unsigned char motionControl, unsigned char param0, unsigned char param1);
 	
 	/**
 	 * Polling for motion detection.
