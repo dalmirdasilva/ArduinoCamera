@@ -50,13 +50,13 @@ unsigned int CameraVC0706::readFrame(unsigned char *buf,
 
 bool CameraVC0706::setDownSize(unsigned char widthDownSize, unsigned char heightDownSize) {
     unsigned char args[] = {(widthDownSize & 0x03) | ((heightDownSize << 2) & 0x0c)};
-    return executeCommand(DOWNSIZE_SIZE, args, sizeof(args), 5);
+    return executeCommand(DOWNSIZE_CTRL, args, sizeof(args), 5);
 }
 
 
 unsigned char CameraVC0706::getDownSize() {
     unsigned char args[] = {};
-    bool run = executeCommand(DOWNSIZE_SIZE, args, sizeof(args), 6);
+    bool run = executeCommand(DOWNSIZE_STATUS, args, sizeof(args), 6);
     if (run) {
         return 0;
     }
