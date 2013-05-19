@@ -12,6 +12,7 @@
 #define __RASPBERRY_DRIVER_CAMERA_VC0706_H__ 1
 
 #include <Arduino.h>
+#include <HardwareSerial.h>
 #include <SoftwareSerial.h>
 
 #define VC0760_DEBUG 				1
@@ -33,7 +34,9 @@ class CameraVC0706 {
 	
 	unsigned int baudRate;
 
-	SoftwareSerial *serial;
+	HardwareSerial *serial;
+
+	SoftwareSerial *debug;
 
 public:
 
@@ -212,12 +215,12 @@ public:
 	 * Public constructor.
 	 *
 	 */
-	CameraVC0706(SoftwareSerial *serial);
+	CameraVC0706(HardwareSerial *serial, SoftwareSerial *debug);
 
 	/**
 	 * Initializes the camera.
 	 */
-	bool begin(unsigned int baud);
+	bool begin(long baud);
 
 	/**
 	 * Closes the camera.
@@ -662,7 +665,7 @@ public:
 	 * 
 	 * @param baudRate				The baud rate.
 	 */
-	bool setBoudRate(unsigned int baudRate);
+	bool setBoudRate(long baudRate);
 
 	/**
 	 * Runs a command.

@@ -1,13 +1,14 @@
 #include "CameraVC0706.h"
 
-CameraVC0706::CameraVC0706(SoftwareSerial *serial) :
-        serial(serial) {
+CameraVC0706::CameraVC0706(HardwareSerial *serial, SoftwareSerial *debug) :
+        serial(serial), debug(debug) {
     rxBufferPointer = 0;
     serialNumber = 0x00;
     framePointer = 0;
 }
 
-bool CameraVC0706::begin(unsigned int baud) {
+bool CameraVC0706::begin(long baud) {
+    debug->println(baud);
     serial->begin(baud);
     return true;
 }
@@ -153,21 +154,21 @@ unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
     unsigned int txLength = 0;
 
 #if VC0760_DEBUG == 1
-    Serial.print("About to write: ");
-    Serial.print(size);
-    Serial.println(" bytes.");
+    debug->print("About to write: ");
+    debug->print(size);
+    debug->println(" bytes.");
 #endif
 
     txLength = serial->write(&buf[0], size);
 
 #if VC0760_DEBUG == 1
     if (txLength < 0) {
-        Serial.println("UART TX error.");
+        debug->println("UART TX error.");
     } else if (txLength != size) {
-        Serial.print("Sent bytes ");
-        Serial.print(txLength);
-        Serial.print(" differs from the size to be send ");
-        Serial.println(size);
+        debug->print("Sent bytes ");
+        debug->print(txLength);
+        debug->print(" differs from the size to be send ");
+        debug->println(size);
     }
 #endif
 
@@ -177,25 +178,26 @@ unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
 unsigned int CameraVC0706::read(unsigned char *buf, unsigned int size) {
     unsigned char c = 0;
     unsigned int rxLength = 0;
-    while (size-- > 0 && serial->available() && (c = serial->read()) != -1) {
+    unsigned char count = size;
+    while (count-- > 0 && serial->available() && (c = serial->read()) != -1) {
         buf[rxLength++] = c;
     }
 
 #if VC0760_DEBUG == 1
     if (c < 0) {
-        Serial.println("Error on read.");
+        debug->println("Error on read.");
     } else if (rxLength == 0) {
-        Serial.println("No data received on read.");
+        debug->println("No data received on read.");
     } else if (rxLength != size) {
-        Serial.print("Read bytes: ");
-        Serial.print(rxLength);
-        Serial.print(" differs from the size to be read: ");
-        Serial.println(size);
+        debug->print("Read bytes: ");
+        debug->print(rxLength);
+        debug->print(" differs from the size to be read: ");
+        debug->println(size);
     } else {
-        Serial.print("It matches! ");
-        Serial.print(rxLength);
-        Serial.print(" bytes read when expecting: ");
-        Serial.println(size);
+        debug->print("It matches! ");
+        debug->print(rxLength);
+        debug->print(" bytes read when expecting: ");
+        debug->println(size);
     }
 #endif
 
@@ -231,15 +233,15 @@ unsigned int CameraVC0706::sendCommand(unsigned char cmd, unsigned char *args,
     sentBytes = write(buf, bufSize);
 
 #if VC0760_DEBUG == 1
-    Serial.print(sentBytes);
-    Serial.println(" bytes written.");
+    debug->print(sentBytes);
+    debug->println(" bytes written.");
 #endif
 
     if (sentBytes != bufSize) {
 
 #if VC0760_DEBUG == 1
-        Serial.print("Sent different amount than expected: ");
-        Serial.println(bufSize);
+        debug->print("Sent different amount than expected: ");
+        debug->println(bufSize);
 #endif
 
         return 0;
@@ -265,11 +267,11 @@ unsigned int CameraVC0706::readResponse(unsigned int length) {
 void CameraVC0706::printBuff(unsigned char *buf, unsigned int c) {
 
 #if VC0760_DEBUG == 1
-    Serial.println("Printing buffer:");
+    debug->println("Printing buffer:");
     for (unsigned int i = 0; i < c; i++) {
-        Serial.print(i);
-        Serial.print(" : ");
-        Serial.println(buf[i]);
+        debug->print(i);
+        debug->print(" : ");
+        debug->println(buf[i], HEX);
     }
 #endif
 
@@ -281,7 +283,7 @@ bool CameraVC0706::reset() {
 
 #if VC0760_DEBUG == 1
     if (run) {
-        Serial.println("Waiting the system to reset.");
+        debug->println("Waiting the system to reset.");
         delay(10);
     }
 #endif
@@ -300,7 +302,7 @@ float CameraVC0706::getVersion() {
         ;
     version += rxBuffer[i] - '0';
     version += 0.1 * (rxBuffer[i + 2] - '0');
-    version += 0.01 * (rxBuffer[i + 3] - '0');
+    //version += 0.01 * (rxBuffer[i + 3] - '0');
     return version;
 }
 
@@ -336,7 +338,7 @@ bool CameraVC0706::setTVOutput(unsigned char onOff) {
     return executeCommand(TV_OUT_CTRL, args, sizeof(args), 5);
 }
 
-bool CameraVC0706::setBoudRate(unsigned int baudRate) {
+bool CameraVC0706::setBoudRate(long baudRate) {
     this->baudRate = baudRate;
     unsigned char args[] = {0x01, (baudRate >> 8) & 0xff, baudRate & 0xff};
     return executeCommand(SET_PORT, args, sizeof(args), 5);
