@@ -1,5 +1,5 @@
 ARDUINO_LIB_PATH=/usr/share/arduino/libraries
-LIB_LIST=Camera CameraOV7670
+LIB_LIST=Camera CameraAL422B CameraOV7670 CameraVC0706
 SOURCE_PATH=`pwd`
 
 all: 

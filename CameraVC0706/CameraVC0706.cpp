@@ -1,14 +1,21 @@
 #include "CameraVC0706.h"
 
-CameraVC0706::CameraVC0706(HardwareSerial *serial, SoftwareSerial *debug) :
+#if VC0760_DEBUG == 1
+CameraVC0706::CameraVC0706(HardwareSerial *serial, Stream *debug) :
         serial(serial), debug(debug) {
     rxBufferPointer = 0;
     serialNumber = 0x00;
     framePointer = 0;
 }
+#else
+CameraVC0706::CameraVC0706(HardwareSerial *serial) : serial(serial) {
+    rxBufferPointer = 0;
+    serialNumber = 0x00;
+    framePointer = 0;
+}
+#endif
 
 bool CameraVC0706::begin(long baud) {
-    debug->println(baud);
     serial->begin(baud);
     return true;
 }
@@ -135,8 +142,8 @@ bool CameraVC0706::pollMotionMonitoring(unsigned int timeout,
     start = millis();
     do {
         if (readResponse(5) > 0) {
-			detected = verifyResponse(COMM_MOTION_DETECTED);
-		}
+            detected = verifyResponse(COMM_MOTION_DETECTED);
+        }
         if (detected && callback != 0) {
             callback(this);
         }
@@ -145,9 +152,9 @@ bool CameraVC0706::pollMotionMonitoring(unsigned int timeout,
 }
 
 bool CameraVC0706::setMotionControl(unsigned char motionControl,
-		unsigned char param0, unsigned char param1) {
-	unsigned char args[] = {motionControl, param0, param1};
-	return executeCommand(MOTION_CTRL, args, sizeof(args), 5);
+        unsigned char param0, unsigned char param1) {
+    unsigned char args[] = {motionControl, param0, param1};
+    return executeCommand(MOTION_CTRL, args, sizeof(args), 5);
 }
 
 unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
@@ -295,14 +302,13 @@ float CameraVC0706::getVersion() {
     unsigned int i = 0;
     float version = 0.0;
     unsigned char args[] = {};
-    if (!executeCommand(GEN_VERSION, args, sizeof(args), 18)) {
+    if (!executeCommand(GEN_VERSION, args, sizeof(args), 16)) {
         return version;
     }
     while (rxBuffer[i++] != ' ')
         ;
     version += rxBuffer[i] - '0';
     version += 0.1 * (rxBuffer[i + 2] - '0');
-    //version += 0.01 * (rxBuffer[i + 3] - '0');
     return version;
 }
 

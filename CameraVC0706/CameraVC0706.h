@@ -36,7 +36,9 @@ class CameraVC0706 {
 
 	HardwareSerial *serial;
 
-	SoftwareSerial *debug;
+#if VC0760_DEBUG == 1
+	Stream *debug;
+#endif
 
 public:
 
@@ -211,11 +213,22 @@ public:
 		B_115200 = 0x0da6
 	};
 
-	/**
-	 * Public constructor.
-	 *
-	 */
-	CameraVC0706(HardwareSerial *serial, SoftwareSerial *debug);
+#if VC0760_DEBUG == 1
+
+    /**
+     * Public constructor on debug mode.
+     *
+     * @param debug             Stream pointer.
+     */
+	CameraVC0706(HardwareSerial *serial, Stream *debug);
+#else
+
+    /**
+     * Public constructor.
+     *
+     */
+    CameraVC0706(HardwareSerial *serial);
+#endif
 
 	/**
 	 * Initializes the camera.
