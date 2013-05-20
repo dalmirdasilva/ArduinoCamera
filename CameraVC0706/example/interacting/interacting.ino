@@ -2,6 +2,7 @@
 #include <CameraVC0706.h>
 #include <SoftwareSerial.h>
 #include <HardwareSerial.h>
+#include <SD.h>
 
 void showUsage(SoftwareSerial *out, unsigned char section) {
     switch(section) {
@@ -57,12 +58,38 @@ unsigned char readParam(SoftwareSerial *in) {
     return op;
 }
 
+void captureAndSave(CameraVC0706 *cam) {
+    File imageFile;
+    imageFile = SD.open("photo.jpg", FILE_WRITE);
+    imageFile.seek(0);
+	cam->executeBufferControl(CameraVC0706::RESUME_FRAME);
+	delay(10);
+	if (cam->capture()) {
+		unsigned int frameLength = cam->getFrameLength();
+        unsigned char b[64];
+        unsigned int remaining, done = 0;
+        unsigned int readFremeLength = 0;
+        while (done < frameLength) {
+            remaining = frameLength - done;
+            readFremeLength = cam->readFrame(b, done, done, (remaining < 64) ? remaining : 64);
+            imageFile.write(b, readFremeLength);
+            done += readFremeLength;
+        }
+	}
+    imageFile.close();
+}
+
 void setup() {
-    SoftwareSerial serial(2, 3);
+    SoftwareSerial serial(6, 7);
     CameraVC0706 cam(&Serial, &serial);
     serial.begin(115200);
     cam.begin(115200);
     serial.println("Camera initialized.");
+    //if (!SD.begin(4)) {
+    //    serial.println("Initialization failed!");
+    //    return;
+    //}
+    serial.println("Initialization done.");
     unsigned char c, arg0, arg1;
     while (true) {
         showUsage(&serial, 0);
@@ -97,6 +124,7 @@ void setup() {
                 break;
 
             case 't':
+                captureAndSave(&cam);
                 serial.println("Soon!");
                 break;
 
