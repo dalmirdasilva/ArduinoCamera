@@ -14,3 +14,22 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.ui 4 4 2013-02-02 14:48:31.580
 !MESSAGE Plug-in 'org.eclipse.cdt.ui' contributed an invalid Menu Extension (Path: 'project/org.eclipse.cdt.ui.prjmenu' is invalid): org.eclipse.cdt.ui.wsselection
+!SESSION 2013-10-19 13:41:14.809 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -data file:///storage/microcontroller/arduino/driver/camera -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2013-10-19 13:41:19.718
+!MESSAGE unexpected method call (NullSarosSession.java:66)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2013-10-19 13:41:19.721
+!MESSAGE unexpected method call (NullSarosSession.java:66)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2013-10-19 13:42:02.909
+!MESSAGE unexpected method call (NullSarosSession.java:66)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2013-10-19 13:42:02.914
+!MESSAGE unexpected method call (NullSarosSession.java:66)
