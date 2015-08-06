@@ -34,23 +34,28 @@ bool CameraVC0706::resume() {
 }
 
 bool CameraVC0706::executeBufferControl(unsigned char control) {
-    unsigned char args[] = {(unsigned char) (control & 0x03)};
+    unsigned char args[] = { (unsigned char) (control & 0x03) };
     return executeCommand(FBUF_CTRL, args, sizeof(args), 5);
 }
 
 unsigned int CameraVC0706::readFrame(unsigned char *buf,
-        unsigned int frameOffset, unsigned int bufferOffset, unsigned int len) {
+        unsigned int frameOffset, unsigned int bufferOffset,
+        unsigned int len) {
     unsigned int bytesRead = 0;
-    unsigned char args[] = {0x00, 0x0a, 0x00, 0x00, ((frameOffset >> 8) & 0xff),
-            frameOffset & 0xff, 0x00, 0x00, ((len >> 8) & 0xff), len & 0xff,
-            (VC0760_CAMERA_DELAY >> 8) & 0xff, VC0760_CAMERA_DELAY & 0xff};
+    unsigned char args[] = { 0x00, 0x0a, 0x00, 0x00,
+            (unsigned char) ((frameOffset >> 8) & 0xff),
+            (unsigned char) (frameOffset & 0xff), 0x00, 0x00,
+            (unsigned char) ((len >> 8) & 0xff), (unsigned char) (len
+                    & 0xff), (VC0760_CAMERA_DELAY >> 8) & 0xff,
+            VC0760_CAMERA_DELAY & 0xff };
 
     if (!executeCommand(READ_FBUF, args, sizeof(args), 5)) {
         return 0;
     }
     while (bytesRead < len) {
         delay(10);
-        bytesRead += read(&buf[bufferOffset + bytesRead], len - bytesRead);
+        bytesRead += read(&buf[bufferOffset + bytesRead],
+                len - bytesRead);
     }
     readResponse(5);
     return bytesRead;
@@ -58,13 +63,13 @@ unsigned int CameraVC0706::readFrame(unsigned char *buf,
 
 bool CameraVC0706::setDownSize(unsigned char widthDownSize,
         unsigned char heightDownSize) {
-    unsigned char args[] = {(widthDownSize & 0x03)
-            | ((heightDownSize << 2) & 0x0c)};
+    unsigned char args[] = { (unsigned char) ((widthDownSize & 0x03)
+            | ((heightDownSize << 2) & 0x0c)) };
     return executeCommand(DOWNSIZE_CTRL, args, sizeof(args), 5);
 }
 
 unsigned char CameraVC0706::getDownSize() {
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     bool run = executeCommand(DOWNSIZE_STATUS, args, sizeof(args), 6);
     if (run) {
         return 0;
@@ -74,7 +79,7 @@ unsigned char CameraVC0706::getDownSize() {
 
 unsigned int CameraVC0706::getFrameLength() {
     unsigned int frameLength = 0;
-    unsigned char args[] = {0x00};
+    unsigned char args[] = { 0x00 };
     if (!executeCommand(GET_FBUF_LEN, args, sizeof(args), 9)
             && rxBuffer[4] == 0x04) {
         return 0;
@@ -87,13 +92,13 @@ unsigned int CameraVC0706::getFrameLength() {
 
 bool CameraVC0706::setHorizontalMirror(unsigned char by,
         unsigned char mirrorMode) {
-    unsigned char args[] = {(unsigned char) (by & 0x01),
-            (unsigned char) (mirrorMode & 0x01)};
+    unsigned char args[] = { (unsigned char) (by & 0x01),
+            (unsigned char) (mirrorMode & 0x01) };
     return executeCommand(MIRROR_CTRL, args, sizeof(args), 5);
 }
 
 unsigned char CameraVC0706::getHorizontalMirrorStatus() {
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     bool run = executeCommand(MIRROR_STATUS, args, sizeof(args), 7);
     unsigned char status = 0;
     if (run) {
@@ -104,13 +109,13 @@ unsigned char CameraVC0706::getHorizontalMirrorStatus() {
 
 bool CameraVC0706::setColorControl(unsigned char by,
         unsigned char colorControlMode) {
-    unsigned char args[] = {(unsigned char) (by & 0x01),
-            (unsigned char) (colorControlMode & 0x01)};
+    unsigned char args[] = { (unsigned char) (by & 0x01),
+            (unsigned char) (colorControlMode & 0x01) };
     return executeCommand(COLOR_CTRL, args, sizeof(args), 5);
 }
 
 unsigned char CameraVC0706::getColorControlStatus() {
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     bool run = executeCommand(COLOR_STATUS, args, sizeof(args), 8);
     unsigned char status = 0;
     if (run) {
@@ -120,17 +125,17 @@ unsigned char CameraVC0706::getColorControlStatus() {
 }
 
 bool CameraVC0706::setOutputResolution(unsigned char resolution) {
-    unsigned char args[] = {0x04, 0x01, 0x00, 0x19, resolution};
+    unsigned char args[] = { 0x04, 0x01, 0x00, 0x19, resolution };
     return executeCommand(WRITE_DATA, args, sizeof(args), 5);
 }
 
 bool CameraVC0706::setMotionMonitoring(bool monitor) {
-    unsigned char args[] = {(unsigned char) monitor};
+    unsigned char args[] = { (unsigned char) monitor };
     return executeCommand(COMM_MOTION_CTRL, args, sizeof(args), 5);
 }
 
 bool CameraVC0706::getMotionMonitoringStatus() {
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     return (executeCommand(COMM_MOTION_STATUS, args, sizeof(args), 6))
             && rxBuffer[5];
 }
@@ -153,11 +158,12 @@ bool CameraVC0706::pollMotionMonitoring(unsigned int timeout,
 
 bool CameraVC0706::setMotionControl(unsigned char motionControl,
         unsigned char param0, unsigned char param1) {
-    unsigned char args[] = {motionControl, param0, param1};
+    unsigned char args[] = { motionControl, param0, param1 };
     return executeCommand(MOTION_CTRL, args, sizeof(args), 5);
 }
 
-unsigned int CameraVC0706::write(unsigned char *buf, unsigned int size) {
+unsigned int CameraVC0706::write(unsigned char *buf,
+        unsigned int size) {
     unsigned int txLength = 0;
 
 #if VC0760_DEBUG == 1
@@ -186,7 +192,8 @@ unsigned int CameraVC0706::read(unsigned char *buf, unsigned int size) {
     unsigned char c = 0;
     unsigned int rxLength = 0;
     unsigned char count = size;
-    while (count-- > 0 && serial->available() && (c = serial->read()) != -1) {
+    while (count-- > 0 && serial->available()
+            && (c = serial->read()) != -1) {
         buf[rxLength++] = c;
     }
 
@@ -211,8 +218,9 @@ unsigned int CameraVC0706::read(unsigned char *buf, unsigned int size) {
     return rxLength;
 }
 
-bool CameraVC0706::executeCommand(unsigned char cmd, unsigned char *args,
-        unsigned char argc, unsigned int responseLength) {
+bool CameraVC0706::executeCommand(unsigned char cmd,
+        unsigned char *args, unsigned char argc,
+        unsigned int responseLength) {
     if (!sendCommand(cmd, args, argc)) {
         return false;
     }
@@ -226,8 +234,8 @@ bool CameraVC0706::executeCommand(unsigned char cmd, unsigned char *args,
     return true;
 }
 
-unsigned int CameraVC0706::sendCommand(unsigned char cmd, unsigned char *args,
-        unsigned int argc) {
+unsigned int CameraVC0706::sendCommand(unsigned char cmd,
+        unsigned char *args, unsigned int argc) {
     unsigned int sentBytes = 0;
     unsigned int bufSize = 4 + argc;
     unsigned char buf[bufSize];
@@ -285,7 +293,7 @@ void CameraVC0706::printBuff(unsigned char *buf, unsigned int c) {
 }
 
 bool CameraVC0706::reset() {
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     bool run = executeCommand(SYSTEM_RESET, args, sizeof(args), 5);
 
 #if VC0760_DEBUG == 1
@@ -301,7 +309,7 @@ bool CameraVC0706::reset() {
 float CameraVC0706::getVersion() {
     unsigned int i = 0;
     float version = 0.0;
-    unsigned char args[] = {};
+    unsigned char args[] = { };
     if (!executeCommand(GEN_VERSION, args, sizeof(args), 16)) {
         return version;
     }
@@ -325,12 +333,12 @@ bool CameraVC0706::setOsdCharacters(unsigned char x, unsigned char y,
 }
 
 bool CameraVC0706::setCompression(unsigned char compression) {
-    unsigned char args[] = {0x01, 0x01, 0x12, 0x04, compression};
+    unsigned char args[] = { 0x01, 0x01, 0x12, 0x04, compression };
     return executeCommand(WRITE_DATA, args, sizeof(args), 5);
 }
 
 unsigned char CameraVC0706::getCompression() {
-    unsigned char args[] = {0x01, 0x01, 0x12, 0x04};
+    unsigned char args[] = { 0x01, 0x01, 0x12, 0x04 };
     bool run = executeCommand(READ_DATA, args, sizeof(args), 6);
     unsigned char compression = 0;
     if (run) {
@@ -340,12 +348,13 @@ unsigned char CameraVC0706::getCompression() {
 }
 
 bool CameraVC0706::setTVOutput(unsigned char onOff) {
-    unsigned char args[] = {onOff & 0x01};
+    unsigned char args[] = { (unsigned char) (onOff & 0x01) };
     return executeCommand(TV_OUT_CTRL, args, sizeof(args), 5);
 }
 
 bool CameraVC0706::setBoudRate(long baudRate) {
     this->baudRate = baudRate;
-    unsigned char args[] = {0x01, (baudRate >> 8) & 0xff, baudRate & 0xff};
+    unsigned char args[] = { 0x01, (unsigned char) ((baudRate >> 8)
+            & 0xff), (unsigned char) (baudRate & 0xff) };
     return executeCommand(SET_PORT, args, sizeof(args), 5);
 }
