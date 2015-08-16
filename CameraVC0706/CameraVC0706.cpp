@@ -275,22 +275,22 @@ bool CameraVC0706::verifyResponse(unsigned char cmd) {
 
 unsigned int CameraVC0706::readResponse(unsigned int length) {
     rxBufferPointer = read(rxBuffer, length);
+#if VC0760_DEBUG == 1
     printBuff(rxBuffer, rxBufferPointer);
+#endif
     return rxBufferPointer;
 }
 
-void CameraVC0706::printBuff(unsigned char *buf, unsigned int c) {
-
 #if VC0760_DEBUG == 1
+void CameraVC0706::printBuff(unsigned char *buf, unsigned int c) {
     debug->println("Printing buffer:");
     for (unsigned int i = 0; i < c; i++) {
         debug->print(i);
         debug->print(" : ");
         debug->println(buf[i], HEX);
     }
-#endif
-
 }
+#endif
 
 bool CameraVC0706::reset() {
     unsigned char args[] = { };
