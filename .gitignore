@@ -21,4 +21,5 @@
 *.app
 
 Release/*
+Debug/*
 
