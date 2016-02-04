@@ -244,7 +244,9 @@ unsigned int CameraVC0706::sendCommand(unsigned char cmd,
     buf[2] = cmd;
     buf[3] = argc;
     memcpy(&buf[4], args, argc);
+#if VC0760_DEBUG == 1
     printBuff(buf, bufSize);
+#endif
     sentBytes = write(buf, bufSize);
 
 #if VC0760_DEBUG == 1
